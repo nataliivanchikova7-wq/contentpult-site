@@ -1,6 +1,7 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}.plans.plans2{grid-template-columns:repeat(2,1fr);max-width:900px}@media(max-width:960px){.plans.plans2{grid-template-columns:1fr}}
 </style></head><body>
 <meta charset="utf-8">
+<script>try{const t=localStorage.getItem("cp-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}</script>
 <title>content.pult</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -415,6 +416,7 @@ body.on-dark .nav .btn.solid{background:var(--lime);color:var(--p-ink);border-co
 .cmp-ar{display:inline-block;transition:transform .3s var(--ease)}
 #cmpbtn[aria-expanded="true"] .cmp-ar{transform:rotate(180deg)}
 .cmp:not([hidden]){animation:fadeup .5s var(--ease)}
+.eyer .pw-tip{position:absolute;top:22px;right:-62px;transform:rotate(8deg);background:var(--lime);color:var(--p-ink);font:500 12.5px var(--f);height:26px;padding:0 10px;border-radius:999px;display:grid;place-items:center;pointer-events:none}
 /* pricing compare */
 .plan .for{color:var(--ink-2);font-size:15.5px;line-height:1.45}
 .plan.best .for{color:color-mix(in srgb,var(--on-solid) 75%,transparent)}
@@ -741,7 +743,7 @@ summary{font-size:18px}
    <div class="ctas"><a class="btn solid mag" href="#pricing">Обрати тариф</a><a class="btn mag" href="https://app.contentpult.com.ua">Увійти в кабінет</a></div>
   </div>
   <div class="eyer" id="eyer">
-   <button type="button" class="pw" id="pw" aria-label="Змінити тему">⏻</button>
+   <button type="button" class="pw" id="pw" aria-label="Змінити тему" title="Світла / темна тема">⏻</button><span class="pw-tip" aria-hidden="true">тема</span>
    <div class="ring"><div class="ball" id="ball"><div class="pupil" id="pupil"></div></div></div>
    <div class="pair"><button type="button" id="up" style="background:var(--pink)" aria-label="Нагору">←</button><span style="background:var(--lilac)" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.8" cy="7.2" r=".6" fill="#141414"/></svg></span></div>
    <div class="low"><div class="mini"><span aria-hidden="true">▷‖</span><span aria-hidden="true">◁×</span></div><div class="vol" aria-hidden="true"><span>+</span><span>−</span></div></div>
@@ -871,7 +873,7 @@ const eyer=$('#eyer'),ball=$('#ball'),pupil=$('#pupil');
 let mx=innerWidth/2,my=innerHeight/2,hasPtr=false,smx=0,smy=0;
 addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;hasPtr=true},{passive:true});
 (function blink(){setTimeout(()=>{eyer.classList.add('blink');setTimeout(()=>eyer.classList.remove('blink'),150);blink()},2500+Math.random()*3000)})();
-$('#pw').onclick=()=>{const r=document.documentElement;const dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;r.dataset.theme=dark?'light':'dark'};
+$('#pw').onclick=()=>{const r=document.documentElement;const dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;r.dataset.theme=dark?'light':'dark';try{localStorage.setItem('cp-theme',r.dataset.theme)}catch(e){}};
 $('#up').onclick=()=>scrollTo({top:0,behavior:RM?'auto':'smooth'});
 const approve=$('#approve');
 
