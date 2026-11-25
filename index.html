@@ -411,6 +411,10 @@ body.on-dark .nav .btn.solid{background:var(--lime);color:var(--p-ink);border-co
 .draft{margin-top:20px}
 @media(max-width:960px){.plans{grid-template-columns:1fr}}
 
+.cmp-t{display:flex;justify-content:center;margin-top:20px}
+.cmp-ar{display:inline-block;transition:transform .3s var(--ease)}
+#cmpbtn[aria-expanded="true"] .cmp-ar{transform:rotate(180deg)}
+.cmp:not([hidden]){animation:fadeup .5s var(--ease)}
 /* pricing compare */
 .plan .for{color:var(--ink-2);font-size:15.5px;line-height:1.45}
 .plan.best .for{color:color-mix(in srgb,var(--on-solid) 75%,transparent)}
@@ -697,7 +701,8 @@ summary{font-size:18px}
    <div class="card plan rv" id="solo"><div class="top"><h3>Соло</h3><span class="chip">1 людина</span></div><div class="amt">₴229 <small>/ міс</small></div><p class="for">Для тих, хто сам веде кілька проєктів і хоче тримати все в одному місці, а не в десяти вкладках.</p><ul><li>усі розділи: план, стрічка, задачі, зйомки, ідеї, тексти, файли</li><li>брифи й сторінка погодження для клієнтів</li><li>аналітика, звіт за місяць і години</li><li>пульт під себе: розділи, меню, тема</li><li>з телефона як апка</li></ul><a class="btn solid mag" href="https://ig.me/m/content.pult" target="_blank" rel="noopener">Хочу Соло</a></div>
    <div class="card plan best rv d1" id="team"><div class="top"><h3>Команда</h3><span class="chip">до 5 людей</span></div><div class="amt">₴399 <small>/ міс</small></div><p class="for">Для агенції чи команди: ядро плюс фрилансери на окремі проєкти. Кожен бачить своє, ти бачиш усе.</p><ul><li>усе з тарифу Соло</li><li>до 5 людей в одному пульті</li><li>ролі: SMM, дизайнер, копірайтер, таргетолог</li><li>доступ лише до потрібних проєктів</li><li>задачі на конкретних людей</li></ul><a class="btn lime mag" href="https://ig.me/m/content.pult" target="_blank" rel="noopener">Хочу Команду</a></div>
   </div>
-  <div class="cmp card rv">
+  <div class="cmp-t rv"><button type="button" class="btn" id="cmpbtn" aria-expanded="false" aria-controls="cmp">Порівняти тарифи <span class="cmp-ar" aria-hidden="true">↓</span></button></div>
+  <div class="cmp card" id="cmp" hidden>
    <div class="cmp-h"><h3>Порівняння</h3><span class="lab">що є в кожному тарифі</span></div>
    <div class="cmp-s"><table>
     <thead><tr><th scope="col"><span class="sr">Можливість</span></th><th scope="col">Соло<small>₴229</small></th><th scope="col" class="t">Команда<small>₴399</small></th></tr></thead>
@@ -1088,5 +1093,8 @@ bt.onclick=add;let t=null;new IntersectionObserver(es=>es.forEach(e=>{if(e.isInt
 (()=>{const sw=document.getElementById('mysw'),d=document.getElementById('myday');if(!sw)return;
 sw.addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(!b)return;sw.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));d.style.background=b.dataset.c;d.style.color=b.dataset.c==='#141414'?'#F1F1ED':''});
 const tg=document.getElementById('mytg');tg.addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(!b)return;b.classList.toggle('hid');document.querySelectorAll('.myrows [data-k="'+b.dataset.k+'"]').forEach(r=>r.hidden=b.classList.contains('hid'))});})();
+</script>
+<script>
+(()=>{const b=document.getElementById('cmpbtn'),c=document.getElementById('cmp');if(!b||!c)return;b.addEventListener('click',()=>{const o=c.hidden;c.hidden=!o;b.setAttribute('aria-expanded',o);b.firstChild.textContent=o?'Сховати порівняння ':'Порівняти тарифи ';if(o)c.scrollIntoView({behavior:'smooth',block:'nearest'})})})();
 </script>
 </body></html>
