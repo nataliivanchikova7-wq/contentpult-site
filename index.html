@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>content.pult — робоче місце для SMM</title>
+<meta name="description" content="Контент-план, задачі, зйомки, тексти, брифи й звіти для SMM в одному пульті. Соло — 229 грн/міс, Команда до 5 людей — 399 грн/міс.">
+<meta property="og:title" content="content.pult — робоче місце для SMM">
+<meta property="og:description" content="Усі клієнти, плани й зйомки в одному пульті. Без табличок і нотаток у п'яти місцях.">
+<meta name="theme-color" content="#E5E5E2">
+<link rel="icon" href="/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ground:#E5E5E2;--card:#FAFAF8;--card2:#F1F1EE;--ink:#131313;--ink2:#5A5A56;--ink3:#8F8F89;--line:#D8D8D3;--lime:#D5F165;--lime-ink:#172000;--solid:#161616;--on:#F6F6F3;--pink:#F4A3C0;--lilac:#D8D7FC;--sky:#C8E1FF;--sage:#E1ECDF;
+--f:'Onest',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--m:'JetBrains Mono',ui-monospace,Menlo,monospace;--sh:0 1px 2px rgba(20,20,20,.04),0 18px 40px -22px rgba(20,20,20,.28)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--f);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+.mk{display:inline-block;width:76px;height:42px;background:var(--ink);-webkit-mask:url(/logo.svg) left center/contain no-repeat;mask:url(/logo.svg) left center/contain no-repeat}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:14px 22px;font:inherit;font-weight:500;font-size:15px;text-decoration:none;border:1.5px solid transparent;cursor:pointer;white-space:nowrap;transition:transform .15s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn.solid{background:var(--solid);color:var(--on)}
+.btn.lime{background:var(--lime);color:var(--lime-ink)}
+.btn.ghost{border-color:var(--line);background:transparent}
+.mono{font-family:var(--m)}
+
+/* header */
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 86%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);padding-top:env(safe-area-inset-top)}
+.hd{display:flex;align-items:center;gap:20px;height:72px}
+.hd nav{display:flex;gap:4px;margin-left:auto}
+.hd nav a{text-decoration:none;color:var(--ink2);padding:8px 12px;border-radius:999px;font-size:15px}
+.hd nav a:hover{color:var(--ink);background:var(--card)}
+.hd .btn{padding:10px 18px}
+@media(max-width:760px){.hd nav{display:none}.hd .btn.ghost{margin-left:auto}}
+
+/* hero */
+.hero{padding-block:56px 40px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:48px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--card);border-radius:999px;padding:6px 14px 6px 8px;font-size:14px;color:var(--ink2)}
+.eyebrow i{width:22px;height:22px;border-radius:50%;background:var(--lime);display:grid;place-items:center;font-style:normal;font-size:12px}
+h1{font-size:clamp(44px,6.4vw,84px);line-height:.98;letter-spacing:-.035em;font-weight:500;margin:22px 0 0;text-wrap:balance}
+h1 em{font-style:normal;background:var(--lime);border-radius:.18em;padding:0 .12em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.sub{font-size:clamp(17px,1.6vw,20px);color:var(--ink2);max-width:34ch;margin:22px 0 0;text-wrap:pretty}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+.price-note{margin-top:16px;font-size:14px;color:var(--ink3)}
+@media(max-width:900px){.hero{grid-template-columns:1fr;padding-block:28px 40px;gap:36px}}
+
+/* mockup */
+.mock{background:var(--card);border-radius:30px;padding:14px;box-shadow:var(--sh);display:grid;grid-template-columns:150px minmax(0,1fr);gap:14px;min-width:0;transform:rotate(-1.2deg)}
+.m-side{display:flex;flex-direction:column;gap:2px;padding:6px 0}
+.m-side .mk{width:50px;height:28px;margin:4px 8px 12px}
+.m-side span{font-size:12px;padding:7px 10px;border-radius:999px;color:var(--ink2);display:flex;gap:8px;align-items:center}
+.m-side span b{width:8px;height:8px;border-radius:3px;background:var(--line)}
+.m-side span.on{background:var(--solid);color:var(--on)}.m-side span.on b{background:var(--lime)}
+.m-side small{font-size:10px;color:var(--ink3);padding:10px 10px 2px}
+.m-main{display:flex;flex-direction:column;gap:10px;min-width:0;background:var(--ground);border-radius:20px;padding:14px}
+.m-t{font-size:26px;letter-spacing:-.02em;line-height:1}
+.m-hero{background:#D9E2A2;border-radius:18px;padding:14px 16px;box-shadow:0 14px 28px -18px rgba(20,20,20,.4)}
+.m-hero .d{display:flex;align-items:baseline;gap:8px}.m-hero .d b{font-size:38px;font-weight:400;letter-spacing:-.03em;line-height:1}.m-hero .d span{font-size:11px;line-height:1.2;color:#3E3E3A}
+.m-hero p{margin:10px 0 0;font-size:15px;line-height:1.3;color:#3E3E3A}.m-hero p b{color:var(--ink);font-weight:600}
+.m-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.m-card{background:var(--card);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:7px;min-width:0}
+.m-card h4{margin:0 0 2px;font-size:12px;font-weight:600}
+.m-it{display:flex;align-items:center;gap:7px;font-size:11px;background:var(--card2);border-radius:9px;padding:6px 8px;border-left:3px solid var(--pc,#B9C4F2);min-width:0}
+.m-it span{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.m-it em{font-style:normal;font-size:10px;color:var(--ink2);display:flex;align-items:center;gap:4px;white-space:nowrap}
+.m-it em i{width:6px;height:6px;border-radius:50%;background:var(--sc)}
+.m-shoot{background:var(--lime);border-radius:9px;padding:7px 9px;font-size:11px;color:var(--lime-ink)}
+@media(max-width:560px){.mock{grid-template-columns:1fr;transform:none}.m-side{display:none}.m-row{grid-template-columns:1fr}}
+
+/* sections */
+section{padding:64px 0}
+.sh{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:32px}
+h2{font-size:clamp(34px,4.4vw,56px);letter-spacing:-.03em;line-height:1;font-weight:500;margin:0;text-wrap:balance}
+.sh p{margin:0;color:var(--ink2);max-width:40ch;font-size:17px}
+.lbl{font-family:var(--m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px}
+
+.feat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.f{background:var(--card);border-radius:26px;padding:24px;display:flex;flex-direction:column;gap:10px;min-height:210px}
+.f .ic{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:var(--bg,var(--card2))}
+.f .ic svg{width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.f h3{margin:6px 0 0;font-size:21px;font-weight:500;letter-spacing:-.01em}
+.f p{margin:0;color:var(--ink2);font-size:15px}
+.f.big{grid-column:span 2;background:var(--solid);color:var(--on)}
+.f.big p{color:#B3B3AC}.f.big .ic{background:var(--lime)}
+.f.big .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:10px}
+.f.big .chips span{font-size:13px;border:1px solid #3A3A38;border-radius:999px;padding:6px 12px;color:#D8D8D3}
+@media(max-width:900px){.feat{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.feat{grid-template-columns:1fr}.f.big{grid-column:auto}}
+
+.who{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
+.w{border-radius:22px;padding:18px;display:flex;flex-direction:column;gap:8px;min-height:160px;background:var(--bg)}
+.w b{font-size:17px;font-weight:500;line-height:1.2}
+.w span{font-size:14px;color:#3E3E3A}
+@media(max-width:1000px){.who{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.who{grid-template-columns:1fr 1fr}.w{min-height:130px}}
+
+.own{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;align-items:stretch}
+.own .txt{background:var(--card);border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:14px}
+.own ul{margin:6px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.own li{display:flex;gap:12px;align-items:flex-start;font-size:16px}
+.own li::before{content:"";flex:none;width:20px;height:20px;border-radius:7px;background:var(--lime);margin-top:2px}
+.pal{border-radius:28px;padding:28px;background:var(--card);display:flex;flex-direction:column;gap:16px;justify-content:center}
+.pal .sw{display:flex;gap:10px;flex-wrap:wrap}
+.pal .sw i{width:46px;height:46px;border-radius:50%;box-shadow:0 4px 10px -4px rgba(20,20,20,.35);border:3px solid var(--card)}
+.pal .mini{border-radius:20px;padding:18px 20px;font-size:19px;line-height:1.3;transition:background .4s}
+.pal .mini b{font-size:44px;font-weight:400;letter-spacing:-.03em;display:block;line-height:1;margin-bottom:8px}
+@media(max-width:800px){.own{grid-template-columns:1fr}}
+
+/* tariffs */
+.plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:920px}
+.plan{background:var(--card);border-radius:30px;padding:30px;display:flex;flex-direction:column;gap:18px;position:relative}
+.plan.team{background:var(--solid);color:var(--on)}
+.plan .nm{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.plan .nm b{font-size:24px;font-weight:500}
+.plan .tag{font-size:12px;font-family:var(--m);background:var(--lime);color:var(--lime-ink);border-radius:999px;padding:4px 10px}
+.plan .pr{display:flex;align-items:baseline;gap:8px}
+.plan .pr b{font-size:64px;font-weight:400;letter-spacing:-.04em;line-height:1}
+.plan .pr span{color:var(--ink3);font-size:15px}
+.plan.team .pr span{color:#9A9A94}
+.plan .for{margin:-6px 0 0;color:var(--ink2);font-size:15px}.plan.team .for{color:#B3B3AC}
+.plan ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;font-size:15px}
+.plan li{display:flex;gap:10px;align-items:flex-start}
+.plan li::before{content:"";flex:none;width:18px;height:18px;margin-top:2px;border-radius:50%;background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D5F165' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/12px no-repeat}
+.plan.team li::before{background-color:var(--lime);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23172000' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E")}
+.plan .btn{margin-top:auto;width:100%}
+.plan.team .btn{background:var(--lime);color:var(--lime-ink)}
+.safe{margin-top:16px;max-width:920px;background:var(--card);border-radius:22px;padding:18px 22px;display:flex;gap:14px;align-items:flex-start;font-size:15px;color:var(--ink2)}
+.safe b{color:var(--ink)}
+.safe i{flex:none;width:28px;height:28px;border-radius:9px;background:var(--lime);display:grid;place-items:center;font-style:normal}
+@media(max-width:760px){.plans{grid-template-columns:1fr}.plan{padding:24px}.plan .pr b{font-size:54px}}
+
+/* faq */
+.faq{display:flex;flex-direction:column;gap:8px;max-width:820px}
+.faq details{background:var(--card);border-radius:20px;padding:0 22px}
+.faq summary{cursor:pointer;list-style:none;padding:20px 0;font-size:18px;font-weight:500;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-weight:400;color:var(--ink3);font-size:22px;line-height:1}
+.faq details[open] summary::after{content:"−"}
+.faq p{margin:0 0 20px;color:var(--ink2);max-width:62ch}
+
+.final{background:var(--lime);border-radius:36px;padding:56px 40px;display:flex;flex-direction:column;align-items:flex-start;gap:20px;color:var(--lime-ink)}
+.final h2{max-width:16ch}
+.final p{margin:0;font-size:18px;max-width:44ch}
+@media(max-width:600px){.final{padding:36px 24px;border-radius:28px}}
+
+footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom));color:var(--ink2);font-size:14px}
+.ft{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+.ft nav{display:flex;gap:18px;flex-wrap:wrap}
+.ft a{text-decoration:none}.ft a:hover{color:var(--ink)}
+</style>
+</head>
+<body>
+<header><div class="wrap hd">
+  <a href="#top" aria-label="content.pult"><span class="mk" role="img" aria-label="content.pult"></span></a>
+  <nav aria-label="Розділи"><a href="#features">Можливості</a><a href="#who">Для кого</a><a href="#own">Під себе</a><a href="#tariffs">Тарифи</a><a href="#faq">Питання</a></nav>
+  <a class="btn ghost" href="https://app.contentpult.com.ua/" id="loginTop">Увійти</a>
+</div></header>
+
+<main id="top">
+<div class="wrap hero">
+  <div>
+    <span class="eyebrow"><i>©</i>робоче місце для SMM і не тільки</span>
+    <h1>Усі клієнти в&nbsp;<em>одному пульті</em></h1>
+    <p class="sub">Контент-план, задачі, зйомки, тексти, брифи й звіти. Без табличок, чатів і нотаток у п'яти місцях.</p>
+    <div class="cta"><a class="btn solid" href="#tariffs">Обрати тариф</a><a class="btn ghost" href="#features">Що всередині</a></div>
+    <div class="price-note">Від <span class="mono">229 грн</span> на місяць</div>
+  </div>
+  <div class="mock" aria-hidden="true">
+    <div class="m-side"><span class="mk"></span><span class="on"><b></b>Сьогодні</span><span><b></b>Задачі</span><small>Контент</small><span><b></b>Контент-план</span><span><b></b>Стрічка</span><span><b></b>Зйомки</span><small>Матеріали</small><span><b></b>Ідеї</span><span><b></b>Брифи</span><small>Цифри</small><span><b></b>Аналітика</span></div>
+    <div class="m-main">
+      <div class="m-t">Сьогодні</div>
+      <div class="m-hero"><div class="d"><b>24</b><span>листопада<br>вівторок</span></div><p>Бонжур. Сьогодні <b>2 публікації</b> і <b>зйомка о 10:00</b>. І ще 2 хвости.</p></div>
+      <div class="m-row">
+        <div class="m-card"><h4>План дня</h4><div class="m-shoot">Зйомка нового меню · 10:00</div><div class="m-it" style="--pc:#F4A3C0"><span>Рілс: шлях страви до гостя</span><em style="--sc:#FF8A47"><i></i>монтаж</em></div><div class="m-it" style="--pc:#B9C4F2"><span>Сторіс: афіша вихідних</span><em style="--sc:#F27DA8"><i></i>у клієнта</em></div></div>
+        <div class="m-card"><h4>Горить</h4><div class="m-it" style="--pc:#9AD0B0"><span>Анонс поп-апу</span><em style="--sc:#B8B8B2"><i></i>ідея</em></div><div class="m-it" style="--pc:#F2A999"><span>Звіт за листопад</span><em style="--sc:#8FA6F5"><i></i>завтра</em></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="features"><div class="wrap">
+  <div class="lbl">Що всередині</div>
+  <div class="sh"><h2>Від ідеї до звіту клієнту</h2><p>Кожен проєкт має свій колір. Перемикаєшся між клієнтами в один тап.</p></div>
+  <div class="feat">
+    <div class="f big"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><h3>Контент-план</h3><p>Місяць, дошка або список по тижнях. Свята й інфоприводи вже в календарі. Перетягуєш допис на інший день — і все.</p><div class="chips"><span>Рілс · Сторіс · Карусель</span><span>Статуси від ідеї до «вийшов»</span><span>Посилання клієнту на погодження</span></div></div>
+    <div class="f"><span class="ic" style="--bg:var(--pink)"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg></span><h3>Стрічка</h3><p>Сітка Instagram наперед. Бачиш, як профіль виглядатиме, ще до публікації.</p></div>
+    <div class="f"><span class="ic" style="--bg:var(--lime)"><svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></span><h3>Зйомки</h3><p>Шот-лист, референси й брифи в одній картці. Відмічаєш кадри прямо на майданчику.</p></div>
+    <div class="f"><span class="ic" style="--bg:var(--lilac)"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 12l3 3 5-6"/></svg></span><h3>Задачі й години</h3><p>Задачі по проєктах, таймер і години за місяць. Звіт для акту — однією кнопкою.</p></div>
+    <div class="f"><span class="ic" style="--bg:var(--sky)"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M9 9h3M9 13h7M9 17h7"/></svg></span><h3>Брифи</h3><p>Надсилаєш клієнту посилання. Він заповнює без реєстрації, відповіді падають у картку проєкту.</p></div>
+    <div class="f"><span class="ic" style="--bg:var(--sage)"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/></svg></span><h3>Ідеї й тексти</h3><p>Свої ідеї, референси, побажання клієнта і банк готових текстів з пошуком.</p></div>
+    <div class="f"><span class="ic" style="--bg:var(--pink)"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><h3>Аналітика</h3><p>Закидаєш експорт з Meta або вносиш цифри вручну. Підсумок для звіту копіюється текстом.</p></div>
+  </div>
+</div></section>
+
+<section id="who"><div class="wrap">
+  <div class="lbl">Для кого</div>
+  <div class="sh"><h2>Для всіх, хто робить контент</h2><p>Обираєш свою роль — у меню лишаються тільки потрібні розділи.</p></div>
+  <div class="who">
+    <div class="w" style="--bg:var(--lime)"><b>SMM-фрилансер</b><span>кілька клієнтів, плани, звіти</span></div>
+    <div class="w" style="--bg:var(--card)"><b>Контент-мейкер</b><span>ідеї, зйомки, стрічка</span></div>
+    <div class="w" style="--bg:var(--pink)"><b>Фото й відео</b><span>зйомки, файли, години</span></div>
+    <div class="w" style="--bg:var(--lilac)"><b>Копірайтер</b><span>тексти, брифи, дедлайни</span></div>
+    <div class="w" style="--bg:var(--sky)"><b>Маркетолог</b><span>план, погодження, цифри</span></div>
+    <div class="w" style="--bg:var(--sage)"><b>Команда</b><span>до 5 людей, ролі й доступи</span></div>
+  </div>
+</div></section>
+
+<section id="own"><div class="wrap own">
+  <div class="txt">
+    <div class="lbl">Під себе</div>
+    <h2>Твій пульт, твої правила</h2>
+    <ul>
+      <li>Ховаєш розділи, які не потрібні. Дані нікуди не зникають.</li>
+      <li>Сам обираєш, що стоїть у меню на телефоні.</li>
+      <li>Вирішуєш, які блоки бачиш зранку на головній.</li>
+      <li>Світла, темна або кольорова тема.</li>
+    </ul>
+  </div>
+  <div class="pal">
+    <div class="sw" id="sw"><i style="background:#D9E2A2" data-c="#D9E2A2"></i><i style="background:#F4A3C0" data-c="#F4A3C0"></i><i style="background:#D8D7FC" data-c="#D8D7FC"></i><i style="background:#C8E1FF" data-c="#C8E1FF"></i><i style="background:#E1ECDF" data-c="#E1ECDF"></i><i style="background:#141414" data-c="#141414"></i></div>
+    <div class="mini" id="mini" style="background:#D9E2A2"><b>24</b>Сьогодні <strong>2 публікації</strong>. Решта почекає.</div>
+  </div>
+</div></section>
+
+<section id="tariffs"><div class="wrap">
+  <div class="lbl">Тарифи</div>
+  <div class="sh"><h2>Два тарифи. Без зірочок</h2><p>Платиш щомісяця, скасувати можна будь-коли.</p></div>
+  <div class="plans">
+    <div class="plan" id="solo">
+      <div class="nm"><b>Соло</b></div>
+      <div class="pr"><b class="mono">229</b><span>грн / місяць</span></div>
+      <p class="for">Для однієї людини, яка веде кілька проєктів.</p>
+      <ul>
+        <li>Усі розділи: план, стрічка, задачі, зйомки, ідеї, тексти, файли</li>
+        <li>Брифи для клієнтів за посиланням</li>
+        <li>Посилання клієнту на погодження плану</li>
+        <li>Аналітика, звіт за місяць і години</li>
+        <li>Налаштування пульта під себе</li>
+      </ul>
+      <a class="btn solid" href="https://ig.me/m/content.pult" target="_blank" rel="noopener" data-plan="solo">Хочу Соло</a>
+    </div>
+    <div class="plan team" id="team">
+      <div class="nm"><b>Команда</b><span class="tag">до 5 людей</span></div>
+      <div class="pr"><b class="mono">399</b><span>грн / місяць</span></div>
+      <p class="for">Для команди чи агенції: ядро плюс фрилансери на окремі проєкти.</p>
+      <ul>
+        <li>Усе, що є в Соло</li>
+        <li>До 5 людей в одному пульті</li>
+        <li>Ролі: SMM, дизайнер, копірайтер, таргетолог та інші</li>
+        <li>Доступ лише до потрібних проєктів</li>
+        <li>Задачі на конкретних людей</li>
+      </ul>
+      <a class="btn" href="https://ig.me/m/content.pult" target="_blank" rel="noopener" data-plan="team">Хочу Команду</a>
+    </div>
+  </div>
+  <div class="safe"><i>✓</i><span><b>Дані не зникають.</b> Якщо оплата не пройшла або ти скасуєш підписку, акаунт і все в ньому зберігаються. Поновиш — продовжиш з того ж місця.</span></div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <div class="lbl">Питання</div>
+  <div class="sh"><h2>Коротко про важливе</h2></div>
+  <div class="faq">
+    <details><summary>Як підключитися?</summary><p>Напиши нам в Instagram, який тариф обираєш. Надішлемо доступ і реквізити. Онлайн-оплату прямо на сайті додамо згодом.</p></details>
+    <details><summary>Можна почати з Соло, а потім перейти на Команду?</summary><p>Так. Усі проєкти й дані лишаються, просто додаються люди й ролі.</p></details>
+    <details><summary>Що буде з даними, якщо я не оплачу вчасно?</summary><p>Нічого не видаляється. Акаунт і все в ньому чекають, поки ти поновиш підписку.</p></details>
+    <details><summary>Працює з телефона?</summary><p>Так. Пульт відкривається в браузері на телефоні й ноутбуці. На телефоні його можна додати на головний екран, як застосунок.</p></details>
+    <details><summary>Клієнту треба реєструватися?</summary><p>Ні. Бриф і план на погодження клієнт відкриває за посиланням.</p></details>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="final">
+    <span class="mk" style="background:var(--lime-ink)"></span>
+    <h2>Менше хаосу. Більше контенту</h2>
+    <p>Перенеси клієнтів у пульт і побач тиждень на одному екрані.</p>
+    <div class="cta" style="margin:0"><a class="btn solid" href="#tariffs">Обрати тариф</a><a class="btn ghost" style="border-color:rgba(23,32,0,.3)" href="https://app.contentpult.com.ua/" id="loginBottom">Увійти в пульт</a></div>
+  </div>
+</div></section>
+</main>
+
+<footer><div class="wrap ft">
+  <span>© content.pult</span>
+  <nav><a href="https://www.instagram.com/content.pult/" target="_blank" rel="noopener">Instagram</a><a href="#tariffs">Тарифи</a><a href="https://app.contentpult.com.ua/">Увійти</a></nav>
+</div></footer>
+
+<script>
+document.getElementById('sw').addEventListener('click',e=>{const i=e.target.closest('[data-c]');if(!i)return;const m=document.getElementById('mini');m.style.background=i.dataset.c;m.style.color=i.dataset.c==='#141414'?'#F1F1ED':''});
+// підсвітити тариф, якщо прийшли з пульта: #tariffs?plan=team або #team
+(function(){const h=location.hash.replace('#','');const el=document.getElementById(h);if(el&&el.classList.contains('plan')){el.style.outline='3px solid #D5F165';el.style.outlineOffset='4px';setTimeout(()=>el.scrollIntoView({block:'center'}),50)}})();
+</script>
+</body>
+</html>
