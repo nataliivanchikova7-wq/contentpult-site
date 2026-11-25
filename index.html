@@ -1,297 +1,1078 @@
-<!doctype html>
-<html lang="uk">
-<head>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}.plans.plans2{grid-template-columns:repeat(2,1fr);max-width:900px}@media(max-width:960px){.plans.plans2{grid-template-columns:1fr}}
+</style></head><body>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>content.pult — робоче місце для SMM</title>
-<meta name="description" content="Контент-план, задачі, зйомки, тексти, брифи й звіти для SMM в одному пульті. Соло — 229 грн/міс, Команда до 5 людей — 399 грн/міс.">
-<meta property="og:title" content="content.pult — робоче місце для SMM">
-<meta property="og:description" content="Усі клієнти, плани й зйомки в одному пульті. Без табличок і нотаток у п'яти місцях.">
-<meta name="theme-color" content="#E5E5E2">
-<link rel="icon" href="/icon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="/icon-180.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>content.pult</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-:root{--ground:#E5E5E2;--card:#FAFAF8;--card2:#F1F1EE;--ink:#131313;--ink2:#5A5A56;--ink3:#8F8F89;--line:#D8D8D3;--lime:#D5F165;--lime-ink:#172000;--solid:#161616;--on:#F6F6F3;--pink:#F4A3C0;--lilac:#D8D7FC;--sky:#C8E1FF;--sage:#E1ECDF;
---f:'Onest',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;--m:'JetBrains Mono',ui-monospace,Menlo,monospace;--sh:0 1px 2px rgba(20,20,20,.04),0 18px 40px -22px rgba(20,20,20,.28)}
+:root{
+ --ground:#E5E5E2; --panel:#EDEDEA; --card:#FAFAF8; --card-2:#F1F1EE;
+ --ink:#141414; --ink-2:#5A5A56; --ink-3:#8F8F89; --line:#D8D8D3; --line-2:#E6E6E2;
+ --lime:#DBF07A; --solid:#141414; --on-solid:#F6F6F3; --band:#141414;
+ --shadow:none;
+ --logo-f:none;
+ /* insta palette: fixed light swatches, text on them is always --p-ink */
+ --lilac:#D8D7FC; --pink:#F4A3C0; --blush:#F7DDE8; --sky:#C8E1FF; --sage:#E1ECDF; --paper:#FAFAF8; --p-ink:#141414;
+ --f:'Onest',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+ --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+ --ease:cubic-bezier(.2,.75,.15,1);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;
+ --ground:#111110; --panel:#1A1A19; --card:#1F1F1E; --card-2:#272726;
+ --ink:#F1F1ED; --ink-2:#B3B3AC; --ink-3:#7A7A73; --line:#30302E; --line-2:#262625;
+ --solid:#F1F1ED; --on-solid:#141414; --band:#000;
+ --shadow:none; --logo-f:invert(1);}}
+:root[data-theme="dark"]{color-scheme:dark;
+ --ground:#111110; --panel:#1A1A19; --card:#1F1F1E; --card-2:#272726;
+ --ink:#F1F1ED; --ink-2:#B3B3AC; --ink-3:#7A7A73; --line:#30302E; --line-2:#262625;
+ --solid:#F1F1ED; --on-solid:#141414; --band:#000;
+ --shadow:none; --logo-f:invert(1);}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--f);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+body{background:var(--ground);color:var(--ink);font-family:var(--f);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden;overflow-x:clip;transition:background .4s}
 a{color:inherit}
-img{max-width:100%}
-.wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
-.mk{display:inline-block;width:76px;height:42px;background:var(--ink);-webkit-mask:url(/logo.svg) left center/contain no-repeat;mask:url(/logo.svg) left center/contain no-repeat}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:14px 22px;font:inherit;font-weight:500;font-size:15px;text-decoration:none;border:1.5px solid transparent;cursor:pointer;white-space:nowrap;transition:transform .15s,background .15s}
-.btn:hover{transform:translateY(-1px)}
-.btn.solid{background:var(--solid);color:var(--on)}
-.btn.lime{background:var(--lime);color:var(--lime-ink)}
-.btn.ghost{border-color:var(--line);background:transparent}
-.mono{font-family:var(--m)}
+p{margin:0}
+h1,h2,h3{margin:0;font-weight:300;letter-spacing:-.05em;line-height:.98;text-wrap:balance}
+h1 b,h2 b{font-weight:500}
+h1{font-size:clamp(52px,8vw,118px)}
+h2{font-size:clamp(40px,5.6vw,76px)}
+h3{font-size:22px;font-weight:500;letter-spacing:-.02em;line-height:1.15}
+.w{max-width:1200px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+section{position:relative;padding-block:clamp(64px,9vw,128px)}
+.lab{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);letter-spacing:.01em}
+.lead{font-size:clamp(17px,1.6vw,20px);color:var(--ink-2);max-width:52ch}
+.sec-h{display:grid;gap:16px;margin-bottom:48px;max-width:820px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:50px;padding:0 26px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:500 15px var(--f);text-decoration:none;cursor:pointer;transition:background .2s,color .2s,transform .5s var(--ease);will-change:transform}
+.btn.solid{background:var(--solid);color:var(--on-solid);border-color:var(--solid)}
+.btn.lime{background:var(--lime);color:var(--p-ink);border-color:var(--lime)}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.card{background:var(--card);border-radius:30px;box-shadow:var(--shadow)}
+.chip{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 13px;border-radius:999px;border:1px solid var(--line);font-size:13px;white-space:nowrap;background:var(--card)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--lime);display:inline-block;flex:none}
+.rv{opacity:0;transform:translateY(28px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.in .rv,.rv.in{opacity:1;transform:none}
+.in .d1{transition-delay:.1s}.in .d2{transition-delay:.2s}.in .d3{transition-delay:.3s}.in .d4{transition-delay:.4s}
+
+/* loader — pure CSS so the page never stays hidden */
+.loader{position:fixed;inset:0;z-index:100;background:var(--ground);display:grid;place-items:center;animation:lout .6s 1.1s var(--ease) forwards;pointer-events:none}
+.loader img{width:150px;filter:var(--logo-f);animation:lpop 1s var(--ease) both}
+@keyframes lpop{from{opacity:0;transform:scale(.85) rotate(-6deg)}to{opacity:1;transform:none}}
+@keyframes lout{to{opacity:0;visibility:hidden}}
+
+/* top bar */
+.topbar{background:var(--solid);color:var(--on-solid);font:400 12.5px var(--mono);overflow:hidden;max-height:40px;transition:max-height .5s cubic-bezier(.6,0,.2,1)}
+.topbar.gone{max-height:0}
+.topbar .w{display:flex;align-items:center;justify-content:center;gap:14px;height:40px;position:relative}
+.topbar a{text-decoration:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.topbar b{font-weight:500;color:var(--lime)}
+.topbar button{position:absolute;right:max(14px,env(safe-area-inset-right,0px));background:none;border:0;color:inherit;font-size:18px;cursor:pointer;width:32px;height:32px}
+.topbar.wide-off a span{display:inline}
+@media(max-width:560px){.topbar .long{display:none}}
 
 /* header */
-header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 86%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);padding-top:env(safe-area-inset-top)}
-.hd{display:flex;align-items:center;gap:20px;height:72px}
-.hd nav{display:flex;gap:4px;margin-left:auto}
-.hd nav a{text-decoration:none;color:var(--ink2);padding:8px 12px;border-radius:999px;font-size:15px}
-.hd nav a:hover{color:var(--ink);background:var(--card)}
-.hd .btn{padding:10px 18px}
-@media(max-width:760px){.hd nav{display:none}.hd .btn.ghost{margin-left:auto}}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:color-mix(in srgb,var(--ground) 84%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:background .4s,color .4s}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:50;background:var(--ground)}
+.nav{display:flex;align-items:center;gap:18px;height:74px}
+.brand{display:flex;align-items:center;margin-right:auto;text-decoration:none}
+.brand img{height:34px;width:auto;display:block;filter:var(--logo-f);transition:filter .4s,transform .6s var(--ease)}
+.brand:hover img{transform:rotate(-6deg)}
+.nav ul{display:flex;gap:2px;list-style:none;margin:0;padding:0}
+.nav ul a{display:block;padding:9px 14px;border-radius:999px;text-decoration:none;font-size:14.5px;color:var(--ink-2);transition:background .2s,color .2s}
+.nav ul a:hover{background:color-mix(in srgb,var(--ink) 7%,transparent);color:var(--ink)}
+.nav .btn{height:42px;padding:0 18px;font-size:14px}
+body.on-dark header{background:rgba(20,20,20,.72);color:#F6F6F3}
+body.on-dark .brand img{filter:invert(1)}
+body.on-dark .nav ul a{color:#B3B3AC}
+body.on-dark .nav ul a:hover{color:#fff;background:rgba(255,255,255,.08)}
+body.on-dark .nav .btn:not(.solid){background:transparent;color:#F6F6F3;border-color:#3A3A38}
+body.on-dark .nav .btn.solid{background:var(--lime);color:var(--p-ink);border-color:var(--lime)}
+@media(max-width:920px){.nav ul{display:none}}
+@media(max-width:440px){.nav .btn:not(.solid){display:none}}
 
 /* hero */
-.hero{padding-block:56px 40px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:48px;align-items:center}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--card);border-radius:999px;padding:6px 14px 6px 8px;font-size:14px;color:var(--ink2)}
-.eyebrow i{width:22px;height:22px;border-radius:50%;background:var(--lime);display:grid;place-items:center;font-style:normal;font-size:12px}
-h1{font-size:clamp(44px,6.4vw,84px);line-height:.98;letter-spacing:-.035em;font-weight:500;margin:22px 0 0;text-wrap:balance}
-h1 em{font-style:normal;background:var(--lime);border-radius:.18em;padding:0 .12em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
-.sub{font-size:clamp(17px,1.6vw,20px);color:var(--ink2);max-width:34ch;margin:22px 0 0;text-wrap:pretty}
-.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
-.price-note{margin-top:16px;font-size:14px;color:var(--ink3)}
-@media(max-width:900px){.hero{grid-template-columns:1fr;padding-block:28px 40px;gap:36px}}
+.hero{overflow:hidden;padding-top:clamp(36px,5vw,72px);padding-bottom:clamp(40px,6vw,90px)}
+.hero .w{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.hero .copy{display:grid;gap:26px;min-width:0;position:relative;z-index:2}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.08em}
+.hero h1 .ln span{display:inline-block;transform:translateY(110%);animation:rise 1.1s var(--ease) forwards}
+.hero h1 .ln:nth-child(1) span{animation-delay:1.25s}.hero h1 .ln:nth-child(2) span{animation-delay:1.38s}
+@keyframes rise{to{transform:none}}
+.hero .fade{opacity:0;animation:fadeup 1s var(--ease) forwards}
+@keyframes fadeup{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.ctas{display:flex;flex-wrap:wrap;gap:10px}
+/* typing prompt removed; interactive TV + remote */
+.hero .w{grid-template-columns:.85fr 1.15fr}
+.hero h1{font-size:clamp(50px,6.6vw,100px)}
+.try{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font:400 12.5px var(--mono);color:var(--ink-3)}
+.try kbd{display:inline-grid;place-items:center;min-width:28px;height:28px;padding:0 8px;border-radius:9px;background:var(--card);border:1px solid var(--line);box-shadow:0 2px 0 var(--line);font:500 12px var(--mono);color:var(--ink)}
+.tvs{position:relative;height:720px;min-width:0;perspective:1200px}
+.tv{position:absolute;left:0;top:20px;width:calc(100% - 195px);height:440px;background:#141414;border-radius:30px;padding:12px;will-change:transform}
+.scr{position:relative;width:100%;height:100%;border-radius:24px;background:#F1F1EE;color:#141414;overflow:hidden}
+.view{position:absolute;inset:0;padding:22px 22px 54px;display:grid;grid-template-rows:auto auto 1fr;gap:12px;transition:opacity .25s,transform .35s var(--ease)}
+.view.out{opacity:0;transform:scale(.97)}
+.vh{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.vh .pj{font:400 12px var(--mono);color:#8F8F89}
+.view h4{margin:0;font-size:clamp(26px,2.6vw,36px);font-weight:300;letter-spacing:-.04em;line-height:1}
+.view h4 b{font-weight:500}
+.lst{display:grid;gap:7px;align-content:start}
+.r{display:flex;align-items:center;gap:10px;background:#FAFAF8;border-radius:14px;padding:10px 12px;font-size:14.5px;border:2px solid transparent;transition:border-color .2s,transform .3s var(--ease);min-width:0}
+.r.sel{border-color:#141414}
+.r .t{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.r .m{font:400 11.5px var(--mono);color:#8F8F89;white-space:nowrap}
+.r .ck{width:22px;height:22px;border-radius:50%;border:1.5px solid #C9C9C3;display:grid;place-items:center;font-size:11px;flex:none;transition:background .25s}
+.r.done .ck{background:#141414;border-color:#141414;color:#F6F6F3}
+.r.done .t{color:#8F8F89;text-decoration:line-through}
+.r.new{animation:pop .5s var(--ease)}
+@keyframes pop{from{opacity:0;transform:translateY(-8px) scale(.96)}}
+.st{height:26px;padding:0 11px;border-radius:999px;display:inline-flex;align-items:center;font-size:12px;white-space:nowrap;background:#E5E5E2;transition:background .3s}
+.st.s1{background:#141414;color:#F6F6F3}.st.s2{background:#DBF07A}
+.fg{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;align-content:start;max-width:250px;width:100%;justify-self:center}
+.fg i{aspect-ratio:4/5;border-radius:8px;transition:transform .45s var(--ease),background .4s;display:block;border:1px solid #E6E6E2}
+.fg i.new{animation:pop .5s var(--ease)}
+.bf{display:grid;gap:8px;align-content:start}
+.bf .q{font:400 11.5px var(--mono);color:#8F8F89;margin-bottom:-4px}
+.bf .a{background:#FAFAF8;border-radius:12px;padding:10px 12px;font-size:14.5px;min-height:40px}
+.bf .a:empty::after{content:"…";color:#C9C9C3}
+.ap{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;align-content:center}
+.ap .pv{aspect-ratio:4/5;border-radius:14px;position:relative;overflow:hidden}
+.ap .pv::after{content:"";position:absolute;inset:auto 12px 12px 12px;height:8px;border-radius:4px;background:rgba(20,20,20,.18)}
+.ap .info{display:grid;gap:10px;min-width:0}
+.ap .info b{font-weight:500;font-size:18px;letter-spacing:-.02em}
+.stamp{position:absolute;right:26px;top:46%;transform:rotate(-12deg) scale(1.6);opacity:0;padding:10px 18px;border-radius:16px;border:3px solid #141414;background:#DBF07A;font-weight:600;font-size:22px;letter-spacing:-.02em;transition:opacity .2s,transform .45s cubic-bezier(.3,1.6,.5,1)}
+.stamp.on{opacity:1;transform:rotate(-12deg) scale(1)}
+.bars2{display:flex;align-items:flex-end;gap:10px;height:100%;min-height:120px;padding:14px;background:#FAFAF8;border-radius:16px}
+.bars2 i{flex:1;border-radius:8px 8px 3px 3px;background:#E5E5E2;transition:height .7s var(--ease),background .3s;position:relative}
+.bars2 i:last-child{background:#141414}
+.bars2 i span{position:absolute;left:50%;top:-20px;transform:translateX(-50%);font:400 10.5px var(--mono);color:#8F8F89}
+.osd{position:absolute;right:16px;top:16px;z-index:3;display:flex;gap:8px;align-items:center;background:#141414;color:#DBF07A;font:500 12px var(--mono);height:28px;padding:0 12px;border-radius:999px;transition:opacity .4s}
+.osd.hide{opacity:0}
+.osd b{color:#F6F6F3;font-weight:400}
+.dots{position:absolute;left:0;right:0;bottom:16px;display:flex;justify-content:center;gap:6px;z-index:3}
+.dots i{width:6px;height:6px;border-radius:3px;background:#C9C9C3;transition:width .35s var(--ease),background .3s}
+.dots i.on{width:22px;background:#141414}
+.noise{position:absolute;inset:0;z-index:4;opacity:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(20,20,20,.0) 0 2px,rgba(20,20,20,.18) 2px 3px),linear-gradient(90deg,#D8D7FC,#DBF07A,#F4A3C0,#C8E1FF)}
+.noise.go{animation:nz .28s steps(4)}
+@keyframes nz{0%{opacity:.95;background-position:0 0}50%{opacity:.8;background-position:0 7px}100%{opacity:0;background-position:0 -5px}}
+.toast{position:absolute;left:50%;bottom:40px;z-index:5;transform:translate(-50%,10px);opacity:0;background:#141414;color:#F6F6F3;height:36px;padding:0 16px;border-radius:999px;display:flex;align-items:center;gap:8px;font-size:13.5px;white-space:nowrap;transition:opacity .25s,transform .35s var(--ease)}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+.pop{position:absolute;left:50%;top:54%;z-index:7;display:flex;align-items:center;gap:12px;padding:8px 22px 8px 8px;border-radius:999px;color:#141414;font-size:clamp(18px,1.8vw,24px);font-weight:500;letter-spacing:-.02em;white-space:nowrap;max-width:88%;pointer-events:none;opacity:0;transform:translate(-50%,-50%) scale(.6) rotate(var(--r,0deg));transition:opacity .18s,transform .45s cubic-bezier(.3,1.6,.5,1)}
+.pop.on{opacity:1;transform:translate(-50%,-50%) scale(1) rotate(var(--r,0deg))}
+.pop.bye{opacity:0;transform:translate(-50%,-62%) scale(.9) rotate(var(--r,0deg));transition:opacity .3s,transform .4s ease}
+.pop .ic{width:48px;height:48px;border-radius:50%;background:#141414;color:#F6F6F3;display:grid;place-items:center;font-size:22px;flex:none}
+.pop .ic svg{width:24px;height:24px;fill:none;stroke:#F6F6F3;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.pop .tx{overflow:hidden;text-overflow:ellipsis}
+.bz{position:absolute;left:50%;top:54%;z-index:6;width:12px;height:12px;border-radius:4px;pointer-events:none;transition:transform .8s cubic-bezier(.15,.7,.3,1),opacity .8s ease}
+@media(max-width:640px){.pop .ic{width:40px;height:40px;font-size:18px}}
 
-/* mockup */
-.mock{background:var(--card);border-radius:30px;padding:14px;box-shadow:var(--sh);display:grid;grid-template-columns:150px minmax(0,1fr);gap:14px;min-width:0;transform:rotate(-1.2deg)}
-.m-side{display:flex;flex-direction:column;gap:2px;padding:6px 0}
-.m-side .mk{width:50px;height:28px;margin:4px 8px 12px}
-.m-side span{font-size:12px;padding:7px 10px;border-radius:999px;color:var(--ink2);display:flex;gap:8px;align-items:center}
-.m-side span b{width:8px;height:8px;border-radius:3px;background:var(--line)}
-.m-side span.on{background:var(--solid);color:var(--on)}.m-side span.on b{background:var(--lime)}
-.m-side small{font-size:10px;color:var(--ink3);padding:10px 10px 2px}
-.m-main{display:flex;flex-direction:column;gap:10px;min-width:0;background:var(--ground);border-radius:20px;padding:14px}
-.m-t{font-size:26px;letter-spacing:-.02em;line-height:1}
-.m-hero{background:#D9E2A2;border-radius:18px;padding:14px 16px;box-shadow:0 14px 28px -18px rgba(20,20,20,.4)}
-.m-hero .d{display:flex;align-items:baseline;gap:8px}.m-hero .d b{font-size:38px;font-weight:400;letter-spacing:-.03em;line-height:1}.m-hero .d span{font-size:11px;line-height:1.2;color:#3E3E3A}
-.m-hero p{margin:10px 0 0;font-size:15px;line-height:1.3;color:#3E3E3A}.m-hero p b{color:var(--ink);font-weight:600}
-.m-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.m-card{background:var(--card);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:7px;min-width:0}
-.m-card h4{margin:0 0 2px;font-size:12px;font-weight:600}
-.m-it{display:flex;align-items:center;gap:7px;font-size:11px;background:var(--card2);border-radius:9px;padding:6px 8px;border-left:3px solid var(--pc,#B9C4F2);min-width:0}
-.m-it span{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.m-it em{font-style:normal;font-size:10px;color:var(--ink2);display:flex;align-items:center;gap:4px;white-space:nowrap}
-.m-it em i{width:6px;height:6px;border-radius:50%;background:var(--sc)}
-.m-shoot{background:var(--lime);border-radius:9px;padding:7px 9px;font-size:11px;color:var(--lime-ink)}
-@media(max-width:560px){.mock{grid-template-columns:1fr;transform:none}.m-side{display:none}.m-row{grid-template-columns:1fr}}
+.off{position:absolute;inset:0;z-index:6;background:#0B0B0B;display:grid;place-items:center;align-content:center;gap:14px;color:#8F8F89;font:400 13px var(--mono);opacity:0;pointer-events:none;transition:opacity .2s}
+.off img{width:120px;filter:invert(1);opacity:.85}
+.scr.isoff .off{opacity:1;pointer-events:auto}
+.scr.isoff .view{animation:crt .35s ease forwards}
+@keyframes crt{to{transform:scale(1,.004);opacity:0}}
+/* the remote, built from real buttons */
+.rc{position:absolute;right:0;top:90px;width:210px;height:600px;border-radius:84px;background:#141414;display:flex;flex-direction:column;align-items:center;padding:26px 0 34px;gap:18px;transform:rotate(-8deg);transform-style:preserve-3d;will-change:transform;z-index:3}
+.rc button{border:0;cursor:pointer;display:grid;place-items:center;color:#141414;-webkit-tap-highlight-color:transparent;transition:transform .12s,filter .2s}
+.rc button:active,.rc button.pr{transform:scale(.9);filter:brightness(.92)}
+.rc svg{width:22px;height:22px;fill:none;stroke:#141414;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.rc .pw{align-self:flex-end;margin-right:30px;width:36px;height:36px;border-radius:50%;background:#FAFAF8}
+.rc .pw svg{width:16px;height:16px}
+.ring{position:relative;width:162px;height:162px;border-radius:50%;background:#DBF07A;flex:none}
+.ring .ar{position:absolute;width:52px;height:52px;background:transparent;border-radius:50%}
+.ring .ar::before{content:"";width:6px;height:6px;border-radius:50%;background:#141414;opacity:0;transition:opacity .15s}
+.ring .ar.pr::before,.ring .ar:active::before{opacity:.5}
+.ring .ar.pr,.ring .ar:active{background:rgba(20,20,20,.12);transform:none}
+.ring .u{left:55px;top:0}.ring .d{left:55px;bottom:0}.ring .l{left:0;top:55px}.ring .rr{right:0;top:55px}
+.ring .ok{position:absolute;left:40px;top:40px;width:82px;height:82px;border-radius:50%;background:#FAFAF8;box-shadow:0 4px 0 #E2E2DE;z-index:2}
+.ring .ok .pp{width:28px;height:28px;border-radius:50%;background:#141414;display:block;transition:height .12s}
+.rc.blink .ok .pp{height:4px}
+.rc .logo{margin-top:auto;width:84px;filter:invert(1);opacity:.9;pointer-events:none}
+.rc .two{display:flex;gap:18px}
+.rc .rd{width:60px;height:60px;border-radius:50%;background:#FAFAF8}
+.rc .bk{background:#F4A3C0}.rc .ig{background:#D8D7FC}
+.rc .low{display:flex;gap:18px}
+.rc .col{display:grid;gap:18px}
+.rc .vol{width:60px;height:132px;border-radius:30px;background:#FAFAF8;display:grid;grid-template-rows:1fr 1fr;overflow:hidden}
+.rc .vol button{background:transparent;width:100%;height:100%}
+.rc .rd.act{background:#FAFAF8}
+.hint{position:relative;z-index:4;display:inline-flex;align-items:center;gap:6px;height:38px;padding:0 15px;border-radius:999px;font-size:14.5px;font-weight:500;letter-spacing:-.01em;color:var(--p-ink);white-space:nowrap;transition:opacity .5s,transform .6s var(--ease);pointer-events:none;animation:bob 3s ease-in-out infinite}
+.hint:nth-of-type(2){animation-delay:-1s}.hint:nth-of-type(3){animation-delay:-2s}
+@keyframes bob{50%{translate:0 -6px}}
+.nudge{position:absolute;z-index:4;right:200px;top:460px;display:flex;align-items:center;gap:2px;pointer-events:none;transition:opacity .5s,transform .6s var(--ease);animation:bob 3s ease-in-out infinite}
+.nudge span{display:block;background:var(--lime);color:var(--p-ink);padding:14px 20px;border-radius:24px;font-size:19px;line-height:1.15;letter-spacing:-.02em;transform:rotate(-4deg);}
+.nudge b{font-weight:500}
+.nudge svg{width:110px;height:56px;margin-top:30px;transform:scaleY(-1);fill:none;stroke:var(--ink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tvs.used .nudge{opacity:0;transform:translateY(10px) scale(.95)}
+@media(max-width:1100px){.hero .w{grid-template-columns:1fr}.tvs{height:720px}.tv{width:calc(100% - 200px)}}
+.hints{position:absolute;left:0;top:500px;display:flex;flex-wrap:wrap;gap:8px;max-width:calc(100% - 230px)}
+@media(max-width:640px){
+ .tvs{height:auto;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px;padding-top:86px;perspective:none}
+ .tv{position:relative;top:0;width:100%;max-width:250px;height:430px;justify-self:end;border-radius:42px;padding:8px;transform:none!important}
+ .tv::after,.tv::before{display:none}
+ .scr{border-radius:35px}
+ .osd{left:50%;right:auto;top:10px;transform:translateX(-50%);height:26px;font-size:11px;opacity:1!important;white-space:nowrap}
+ .view{padding:46px 12px 40px;gap:10px}
+ .view h4{font-size:22px}
+ .r{padding:9px 10px;font-size:13.5px;gap:8px}.r .m{display:none}.r .ck{width:18px;height:18px}
+ .st{height:22px;padding:0 8px;font-size:10.5px}
+ .ap{grid-template-columns:1fr;gap:10px}.ap .pv{width:90px}
+ .ap .info b{font-size:15px}
+ .bars2 i span{display:none}
+ .rc{position:relative;right:auto;top:auto;zoom:.72;transform:rotate(-5deg)!important;margin:0 4px 0 -22px}
+ .nudge{right:0;left:auto;top:0;flex-direction:column;align-items:flex-end;gap:0}
+ .nudge span{font-size:15px;padding:10px 14px}
+ .nudge svg{width:58px;height:34px;margin:4px 30px 0 0;transform:rotate(90deg)}
+}
+@media(max-width:370px){.rc{zoom:.6;margin-left:-18px}.tv{height:370px}.view h4{font-size:20px}}
+@media(prefers-reduced-motion:reduce){.hint{animation:none}.noise.go{animation:none}}
 
-/* sections */
-section{padding:64px 0}
-.sh{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:32px}
-h2{font-size:clamp(34px,4.4vw,56px);letter-spacing:-.03em;line-height:1;font-weight:500;margin:0;text-wrap:balance}
-.sh p{margin:0;color:var(--ink2);max-width:40ch;font-size:17px}
-.lbl{font-family:var(--m);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink3);margin-bottom:14px}
 
-.feat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.f{background:var(--card);border-radius:26px;padding:24px;display:flex;flex-direction:column;gap:10px;min-height:210px}
-.f .ic{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:var(--bg,var(--card2))}
-.f .ic svg{width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.f h3{margin:6px 0 0;font-size:21px;font-weight:500;letter-spacing:-.01em}
-.f p{margin:0;color:var(--ink2);font-size:15px}
-.f.big{grid-column:span 2;background:var(--solid);color:var(--on)}
-.f.big p{color:#B3B3AC}.f.big .ic{background:var(--lime)}
-.f.big .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:10px}
-.f.big .chips span{font-size:13px;border:1px solid #3A3A38;border-radius:999px;padding:6px 12px;color:#D8D8D3}
-@media(max-width:900px){.feat{grid-template-columns:1fr 1fr}}
-@media(max-width:600px){.feat{grid-template-columns:1fr}.f.big{grid-column:auto}}
+/* marquee rows driven by scroll */
+.mq{padding-block:20px 10px;overflow:hidden}
+.mq .row{display:flex;gap:10px;width:max-content;will-change:transform}
+.mq .row+.row{margin-top:10px}
+.mq .row span{display:inline-flex;align-items:center;height:56px;padding:0 26px;border-radius:999px;font-size:22px;font-weight:400;letter-spacing:-.02em;color:var(--p-ink);white-space:nowrap}
+.mq .row span.o{background:transparent;border:1.5px solid var(--line);color:var(--ink)}
 
-.who{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}
-.w{border-radius:22px;padding:18px;display:flex;flex-direction:column;gap:8px;min-height:160px;background:var(--bg)}
-.w b{font-size:17px;font-weight:500;line-height:1.2}
-.w span{font-size:14px;color:#3E3E3A}
-@media(max-width:1000px){.who{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:560px){.who{grid-template-columns:1fr 1fr}.w{min-height:130px}}
+/* manifesto, scroll-lit letters */
+.mani p{font-size:clamp(28px,3.8vw,52px);font-weight:300;letter-spacing:-.04em;line-height:1.12;max-width:20em}
+.mani .ch{opacity:.16;transition:opacity .25s}
+.mani .ch.on{opacity:1}
+.mani .sig{margin-top:28px}
 
-.own{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;align-items:stretch}
-.own .txt{background:var(--card);border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:14px}
-.own ul{margin:6px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
-.own li{display:flex;gap:12px;align-items:flex-start;font-size:16px}
-.own li::before{content:"";flex:none;width:20px;height:20px;border-radius:7px;background:var(--lime);margin-top:2px}
-.pal{border-radius:28px;padding:28px;background:var(--card);display:flex;flex-direction:column;gap:16px;justify-content:center}
-.pal .sw{display:flex;gap:10px;flex-wrap:wrap}
-.pal .sw i{width:46px;height:46px;border-radius:50%;box-shadow:0 4px 10px -4px rgba(20,20,20,.35);border:3px solid var(--card)}
-.pal .mini{border-radius:20px;padding:18px 20px;font-size:19px;line-height:1.3;transition:background .4s}
-.pal .mini b{font-size:44px;font-weight:400;letter-spacing:-.03em;display:block;line-height:1;margin-bottom:8px}
-@media(max-width:800px){.own{grid-template-columns:1fr}}
+/* chaos → order */
+.chaos{height:175vh;padding:0}
+.chaos .pin{position:sticky;top:74px;height:calc(100vh - 74px);min-height:560px;display:flex;align-items:center;overflow:hidden}
+.chaos .w{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:center;width:100%}
+.chaos .hd{position:relative;min-height:2.2em;font-size:clamp(40px,5.6vw,76px)}
+.chaos .hd h2{position:absolute;inset:0 auto auto 0}
 
-/* tariffs */
-.plans{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:920px}
-.plan{background:var(--card);border-radius:30px;padding:30px;display:flex;flex-direction:column;gap:18px;position:relative}
-.plan.team{background:var(--solid);color:var(--on)}
-.plan .nm{display:flex;justify-content:space-between;align-items:center;gap:10px}
-.plan .nm b{font-size:24px;font-weight:500}
-.plan .tag{font-size:12px;font-family:var(--m);background:var(--lime);color:var(--lime-ink);border-radius:999px;padding:4px 10px}
-.plan .pr{display:flex;align-items:baseline;gap:8px}
-.plan .pr b{font-size:64px;font-weight:400;letter-spacing:-.04em;line-height:1}
-.plan .pr span{color:var(--ink3);font-size:15px}
-.plan.team .pr span{color:#9A9A94}
-.plan .for{margin:-6px 0 0;color:var(--ink2);font-size:15px}.plan.team .for{color:#B3B3AC}
-.plan ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;font-size:15px}
-.plan li{display:flex;gap:10px;align-items:flex-start}
-.plan li::before{content:"";flex:none;width:18px;height:18px;margin-top:2px;border-radius:50%;background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D5F165' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/12px no-repeat}
-.plan.team li::before{background-color:var(--lime);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23172000' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E")}
-.plan .btn{margin-top:auto;width:100%}
-.plan.team .btn{background:var(--lime);color:var(--lime-ink)}
-.safe{margin-top:16px;max-width:920px;background:var(--card);border-radius:22px;padding:18px 22px;display:flex;gap:14px;align-items:flex-start;font-size:15px;color:var(--ink2)}
-.safe b{color:var(--ink)}
-.safe i{flex:none;width:28px;height:28px;border-radius:9px;background:var(--lime);display:grid;place-items:center;font-style:normal}
-@media(max-width:760px){.plans{grid-template-columns:1fr}.plan{padding:24px}.plan .pr b{font-size:54px}}
+.chaos .txt{display:grid;gap:18px;min-width:0}
+.board{position:relative;height:500px;min-width:0}
+.board .pc{position:absolute;inset:0;border-radius:30px;background:var(--card);box-shadow:var(--shadow);opacity:0;transform:scale(.94);transition:none}
+.board .pc .lab{position:absolute;left:24px;top:22px}
+.board .pc b{position:absolute;left:24px;top:44px;font-weight:500;font-size:22px;letter-spacing:-.02em}
+.bit{position:absolute;left:0;top:0;display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 16px;border-radius:14px;font-size:15px;white-space:nowrap;color:var(--p-ink);will-change:transform;transition:background .3s,box-shadow .3s}
+.bit .ck{width:20px;height:20px;border-radius:50%;border:1.5px solid rgba(20,20,20,.35);display:grid;place-items:center;font-size:11px;flex:none}
+.bit.tidy{box-shadow:none}
+.bit.tidy .ck{background:#141414;border-color:#141414;color:#F6F6F3}
+@media(max-width:860px){.chaos .w{grid-template-columns:1fr;gap:16px}.board{height:430px}.chaos .lead{display:none}}
+
+/* switchboard (dark band) */
+.band{background:var(--band);color:#F6F6F3}
+.band .lab{color:#8F8F89}
+.band .lead{color:#B3B3AC}
+.sw{display:grid;grid-template-columns:340px 1fr;gap:20px;align-items:stretch}
+.tog{display:grid;gap:6px;align-content:start}
+.tg{display:flex;align-items:center;justify-content:space-between;gap:14px;width:100%;padding:12px 12px 12px 20px;border-radius:20px;border:1px solid #2C2C2A;background:transparent;color:#B3B3AC;font:400 17px var(--f);letter-spacing:-.01em;text-align:left;cursor:pointer;transition:background .3s,color .3s,border-color .3s}
+.tg:hover{border-color:#4A4A47;color:#fff}
+.tg.act{background:#1F1F1E;color:#fff;border-color:#4A4A47}
+.sl{position:relative;width:58px;height:32px;border-radius:999px;border:1.5px solid #6A6A66;flex:none;transition:background .35s,border-color .35s}
+.sl::after{content:"";position:absolute;left:3px;top:3px;width:23px;height:23px;border-radius:50%;background:#6A6A66;transition:transform .45s var(--ease),background .35s}
+.tg.on .sl{background:var(--lime);border-color:var(--lime)}
+.tg.on .sl::after{transform:translateX(26px);background:#141414}
+.all{margin-top:10px;justify-content:center;background:var(--lime);color:var(--p-ink);border-color:var(--lime);font-weight:500;height:54px}
+.all:hover{color:var(--p-ink);border-color:var(--lime);filter:brightness(1.05)}
+.panel{position:relative;border-radius:34px;padding:clamp(26px,3.6vw,48px);color:var(--p-ink);display:grid;grid-template-rows:auto auto 1fr;gap:18px;min-height:560px;overflow:hidden;transition:background .6s var(--ease);min-width:0}
+.panel .top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.panel .top span{font:400 13px var(--mono);opacity:.6}
+.panel h3{font-size:clamp(40px,4.6vw,66px);font-weight:300;letter-spacing:-.05em;line-height:.98}
+.panel h3 b{font-weight:500}
+.panel p{font-size:18px;max-width:40ch;opacity:.85}
+.panel .demo{align-self:end;display:grid;gap:8px;max-width:520px}
+.panel .swap{display:grid;gap:18px;transition:opacity .35s,transform .5s var(--ease)}
+.panel .swap.out{opacity:0;transform:translateY(14px)}
+.dm{background:#FAFAF8;border-radius:16px;padding:12px 14px;display:flex;align-items:center;gap:10px;font-size:15px;color:#141414;min-width:0}
+.dm .t{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dm .m{font:400 12px var(--mono);color:#8F8F89}
+.dm .pill{height:28px;padding:0 12px;border-radius:999px;display:inline-flex;align-items:center;font-size:13px;background:#141414;color:#F6F6F3;white-space:nowrap}
+.dm .pill.l{background:var(--lime);color:#141414}
+.feedg{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;background:#FAFAF8;border-radius:18px;padding:8px}
+.feedg i{aspect-ratio:4/5;border-radius:8px}
+.bars{display:flex;align-items:flex-end;gap:8px;height:130px;background:#FAFAF8;border-radius:18px;padding:14px}
+.bars i{flex:1;border-radius:8px 8px 3px 3px;background:#E5E5E2;transform-origin:bottom;animation:grow .8s var(--ease) both}
+.bars i.on{background:#141414}
+@keyframes grow{from{transform:scaleY(.1)}}
+.filesg{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.filesg span{background:#FAFAF8;border-radius:14px;padding:10px 8px;font:400 11.5px var(--mono);text-align:center;color:#5A5A56;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.filesg span::before{content:"";display:block;height:44px;margin-bottom:8px;border-radius:8px;background:var(--c)}
+@media(max-width:900px){.sw{grid-template-columns:1fr}.tog{display:flex;flex-wrap:wrap;gap:6px}.tg{width:auto;flex:none;gap:10px}.tg{padding:8px 8px 8px 14px;font-size:14.5px;border-radius:16px}.sl{width:44px;height:26px}.sl::after{width:18px;height:18px}.tg.on .sl::after{transform:translateX(18px)}.all{flex:1 1 100%;margin-top:4px;height:48px}.panel{min-height:500px}}
+@media(max-width:520px){.filesg{grid-template-columns:repeat(2,1fr)}}
+
+/* client page */
+.client .card{position:relative;padding:clamp(28px,4vw,56px);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;overflow:hidden}
+.client ul{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:10px}
+.client li{display:flex;gap:10px;align-items:center;color:var(--ink-2)}
+.phone{justify-self:center;width:236px;max-width:100%;border-radius:44px;background:#141414;padding:10px;transform:rotate(4deg);transition:transform .8s var(--ease)}
+.phone:hover{transform:rotate(0) translateY(-6px)}
+.phone .pscr{background:#F1F1EE;color:#141414;border-radius:36px;padding:22px 14px 14px;display:grid;gap:10px}
+.phone .pscr h4{margin:0;font-weight:300;font-size:24px;letter-spacing:-.03em}
+.phone .pscr .lab{color:#8F8F89}
+.phone .acts{display:flex;gap:6px}
+.phone .acts button{flex:1;height:40px;border-radius:999px;border:1px solid #D8D8D3;background:#FAFAF8;font:400 13px var(--f);color:#141414;cursor:pointer}
+.phone .acts button.l{background:var(--lime);border-color:var(--lime);font-weight:500}
+.phone .ok{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--ease)}
+.phone .ok>div{overflow:hidden;min-height:0}
+.phone.done .ok{grid-template-rows:1fr}
+@media(max-width:820px){.client .card{grid-template-columns:1fr}}
+
+/* my pult: personalisation */
+.mine .card{padding:clamp(28px,4vw,56px);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;overflow:hidden}
+.mine ul{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:10px}
+.mine li{display:flex;gap:10px;align-items:baseline;color:var(--ink-2)}
+.mine li .dot{transform:translateY(-1px)}
+.myp{justify-self:center;width:100%;max-width:400px;border-radius:30px;background:#141414;padding:10px;transform:rotate(-3deg);transition:transform .8s var(--ease)}
+.myp:hover{transform:rotate(0) translateY(-6px)}
+.myp .in2{background:#F1F1EE;color:#141414;border-radius:22px;padding:18px;display:grid;gap:14px}
+.myp .lab{color:#8F8F89}
+.mysw{display:flex;gap:10px;flex-wrap:wrap}
+.mysw button{width:40px;height:40px;border-radius:50%;border:3px solid #FAFAF8;box-shadow:0 0 0 1px #D8D8D3;cursor:pointer;padding:0;transition:transform .3s var(--ease),box-shadow .2s}
+.mysw button.on{box-shadow:0 0 0 2px #141414;transform:scale(1.08)}
+.mytg{display:flex;flex-wrap:wrap;gap:6px}
+.mytg button{height:34px;padding:0 14px;border-radius:999px;border:1px solid #D8D8D3;background:#FAFAF8;color:#141414;font:400 13.5px var(--f);cursor:pointer;transition:background .2s,color .2s,opacity .2s}
+.mytg button.hid{background:transparent;color:#8F8F89;text-decoration:line-through}
+.myday{border-radius:18px;padding:16px 18px;display:grid;gap:4px;transition:background .45s var(--ease),color .3s}
+.myday b{font-size:44px;font-weight:300;letter-spacing:-.05em;line-height:1}
+.myday p{font-size:16px}
+.myrows{display:grid;gap:6px}
+.myrows .dm{font-size:14px;padding:10px 12px;transition:opacity .3s}
+.myrows .dm[hidden]{display:none}
+@media(max-width:820px){.mine .card{grid-template-columns:1fr}.myp{transform:none}.mysw{gap:7px;flex-wrap:nowrap}.mysw button{width:34px;height:34px}}
+/* pocket block: add the pult to a dock */
+.mob .card{background:#141414;color:#F6F6F3;display:grid;grid-template-columns:1fr auto;gap:clamp(24px,4vw,60px);align-items:center;padding:clamp(28px,4vw,52px) clamp(28px,4vw,56px);border:0}
+.mob h2{color:#F6F6F3;font-size:clamp(36px,4.4vw,60px)}
+.mob h2 b{color:var(--lime)}
+.mob p{color:#B3B3AC;font-size:clamp(16px,1.5vw,19px);max-width:46ch;margin-top:14px}
+.dockw{display:grid;justify-items:center;gap:16px}
+.dock{display:flex;gap:14px;padding:14px;border-radius:30px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.dock i{width:62px;height:62px;border-radius:17px;display:block;flex:none}
+.dock .slot{border:1.5px dashed rgba(255,255,255,.35);display:grid;place-items:center;position:relative}
+.dock .slot::after{content:"+";color:rgba(255,255,255,.45);font-size:24px;font-style:normal}
+.dock .slot img{width:80%;opacity:0;transform:scale(.2) translateY(-60px);transition:transform .7s cubic-bezier(.3,1.6,.5,1),opacity .2s;position:absolute}
+.dock.in .slot{background:var(--lime);border-color:var(--lime);animation:jig .5s .5s ease-in-out 2}
+.dock.in .slot::after{content:none}
+.dock.in .slot img{opacity:1;transform:none;filter:none}
+@keyframes jig{25%{transform:rotate(-6deg)}75%{transform:rotate(6deg)}}
+.dockbtn{height:48px;padding:0 22px;border-radius:999px;border:0;background:var(--lime);color:#141414;font:500 15px var(--f);cursor:pointer;transition:background .3s,color .3s}
+.dockbtn.done{background:transparent;color:#DBF07A;cursor:default}
+@media(max-width:760px){.mob .card{grid-template-columns:1fr}.dock{gap:10px;padding:11px;border-radius:26px}.dock i{width:52px;height:52px;border-radius:15px}}
+@media(max-width:360px){.dock i{width:44px;height:44px}}
+@media(prefers-reduced-motion:reduce){.dock.in .slot{animation:none}}
+/* who — glass stacking cards over drifting colour */
+#who{position:relative}
+:root{--glass:linear-gradient(135deg,rgba(255,255,255,.62),rgba(255,255,255,.28));--glass-b:rgba(255,255,255,.75);--chip:rgba(255,255,255,.55)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--glass:linear-gradient(135deg,rgba(60,60,58,.5),rgba(30,30,29,.35));--glass-b:rgba(255,255,255,.12);--chip:rgba(255,255,255,.08)}}
+:root[data-theme="dark"]{--glass:linear-gradient(135deg,rgba(60,60,58,.5),rgba(30,30,29,.35));--glass-b:rgba(255,255,255,.12);--chip:rgba(255,255,255,.08)}
+.blobs{position:absolute;inset:0;overflow:hidden;clip-path:inset(0);pointer-events:none;z-index:0;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 8%,#000 82%,transparent 100%);mask-image:linear-gradient(180deg,transparent 0,#000 8%,#000 82%,transparent 100%)}
+.blobs i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.4;animation:drift 18s ease-in-out infinite alternate}
+@keyframes drift{to{translate:40px -60px;scale:1.1}}
+@media(max-width:760px){.blobs i{scale:.6;filter:blur(50px)}}
+.blobs~.w{position:relative;z-index:1}
+.glassy .card,.glassy details{background:var(--glass);border:1px solid var(--glass-b);backdrop-filter:blur(34px) saturate(1.25);-webkit-backdrop-filter:blur(34px) saturate(1.25)}
+.glassy .plan.best{background:var(--solid);border-color:transparent}
+.stack{display:grid;gap:0}
+.sc{position:sticky;top:104px;min-height:clamp(380px,50vh,460px);margin-bottom:30px;border-radius:36px;padding:clamp(26px,4vw,52px);color:var(--ink);background:var(--glass);border:1px solid var(--glass-b);backdrop-filter:blur(34px) saturate(1.25);-webkit-backdrop-filter:blur(34px) saturate(1.25);display:grid;grid-template-columns:1fr auto;gap:clamp(20px,4vw,56px);transform-origin:50% 0;will-change:transform;overflow:hidden;isolation:isolate;clip-path:inset(0 round 36px);}
+.sc::before{content:"";position:absolute;z-index:-1;width:380px;height:380px;right:-110px;top:-130px;border-radius:50%;background:var(--c);filter:blur(80px);opacity:.32}
+.sc .scl{display:grid;gap:16px;align-content:end;min-width:0}
+.sc .scw{font-size:15px;color:var(--ink-2);display:flex;align-items:center;gap:10px}
+.sc .scw i{width:12px;height:12px;border-radius:50%;background:var(--c);box-shadow:0 0 0 4px var(--chip)}
+.sc h3{font-size:clamp(36px,4.6vw,64px);font-weight:300;letter-spacing:-.05em;line-height:.98}
+.sc h3 b{font-weight:500}
+.sc .q{font-size:clamp(20px,2vw,26px);font-weight:400;letter-spacing:-.025em;line-height:1.2}
+.sc .d{font-size:clamp(18px,1.7vw,22px);color:var(--ink);max-width:40ch;line-height:1.35;letter-spacing:-.01em}
+.sc .scr2{display:grid;align-content:space-between;justify-items:end;gap:20px;min-width:0}
+.sc .big{font-size:clamp(90px,11vw,160px);font-weight:300;letter-spacing:-.08em;line-height:.8;color:var(--ink)}
+.sc ul{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px;min-width:0}
+.sc li{display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 18px 0 8px;border-radius:999px;background:var(--chip);border:1px solid var(--glass-b);font-size:15.5px;white-space:nowrap;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.sc li::before{content:"✓";width:30px;height:30px;border-radius:50%;background:var(--lime);color:var(--p-ink);display:grid;place-items:center;font-size:13px;font-weight:600}
+@media(max-width:760px){.sc{grid-template-columns:1fr;top:88px;min-height:0}.sc .scr2{justify-items:start;order:-1;grid-template-columns:1fr auto;align-items:start;display:grid}.sc .big{font-size:64px;grid-column:2;grid-row:1}.sc li{height:38px;font-size:14px}.sc li::before{width:24px;height:24px}.sc .d{font-size:16px}}
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.steps .card{padding:28px;display:grid;gap:12px;min-width:0;align-content:start}
+.steps .num{font-size:clamp(90px,10vw,150px);font-weight:300;letter-spacing:-.07em;line-height:.8;color:var(--ink)}
+.steps p{color:var(--ink-2)}
+@media(max-width:820px){.steps{grid-template-columns:1fr}}
+
+/* pricing */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
+.plan{padding:30px;display:flex;flex-direction:column;gap:20px;min-width:0;transition:transform .5s var(--ease)}
+.plan:hover{transform:translateY(-6px)}
+.plan .top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.plan h3{font-size:26px}
+.amt{font-size:54px;font-weight:300;letter-spacing:-.05em;line-height:1}
+.amt small{font-size:15px;color:var(--ink-3);letter-spacing:0}
+.plan ul{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:15.5px}
+.plan li{display:flex;gap:10px}
+.plan li::before{content:"";width:18px;height:18px;border-radius:50%;background:var(--lime);flex:none;margin-top:2px}
+.plan .btn{margin-top:auto}
+.plan.best{background:var(--solid);color:var(--on-solid)}
+.plan.best .amt small{color:color-mix(in srgb,var(--on-solid) 55%,transparent)}
+.plan.best .chip{background:var(--lime);color:var(--p-ink);border-color:var(--lime)}
+.draft{margin-top:20px}
+@media(max-width:960px){.plans{grid-template-columns:1fr}}
+
+/* reviews */
+.rvw{display:grid;grid-template-columns:1fr 280px;gap:24px;align-items:stretch}
+.qcard{padding:clamp(28px,4vw,52px);display:grid;gap:26px;min-height:380px;align-content:space-between;min-width:0}
+.qcard .q{font-size:110px;line-height:.6;font-weight:500;height:46px}
+.qcard .body{display:grid;gap:16px;transition:opacity .45s,transform .45s var(--ease)}
+.qcard .body.out{opacity:0;transform:translateY(10px)}
+.qcard .body p{font-size:clamp(22px,2.4vw,34px);font-weight:300;letter-spacing:-.03em;line-height:1.2;max-width:28ch}
+.sk{display:grid;gap:9px}
+.sk i{height:12px;border-radius:6px;background:var(--line)}
+.who-r{display:flex;align-items:center;gap:12px}
+.who-r .av{width:52px;height:52px;border-radius:50%;border:1.5px dashed var(--ink-3)}
+.ctrl{display:flex;align-items:center;gap:10px}
+.ctrl button{width:52px;height:52px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:20px;cursor:pointer;transition:background .2s}
+.ctrl button:hover{background:var(--solid);color:var(--on-solid)}
+.ctrl .cnt{font:400 13px var(--mono);color:var(--ink-3);margin-left:6px}
+.ghost{border-radius:30px;border:1.5px dashed var(--line);padding:28px;display:grid;align-content:space-between;opacity:.6}
+.ghost p{font-size:20px;font-weight:300;color:var(--ink-3);letter-spacing:-.02em}
+@media(max-width:860px){.rvw{grid-template-columns:1fr}.ghost{display:none}}
 
 /* faq */
-.faq{display:flex;flex-direction:column;gap:8px;max-width:820px}
-.faq details{background:var(--card);border-radius:20px;padding:0 22px}
-.faq summary{cursor:pointer;list-style:none;padding:20px 0;font-size:18px;font-weight:500;display:flex;justify-content:space-between;gap:16px}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-weight:400;color:var(--ink3);font-size:22px;line-height:1}
-.faq details[open] summary::after{content:"−"}
-.faq p{margin:0 0 20px;color:var(--ink2);max-width:62ch}
+.faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px}
+.faq .list{display:grid;gap:10px;align-content:start}
+details{background:var(--card);border-radius:22px;padding:20px 24px;box-shadow:var(--shadow)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-size:17px;font-weight:500}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--ink-3);font-size:22px;line-height:1;transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin-top:10px;color:var(--ink-2)}
+.fchips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.fchips button{height:40px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:400 15px var(--f);cursor:pointer;transition:background .2s,color .2s}
+.fchips button.on{background:var(--solid);color:var(--on-solid);border-color:var(--solid)}
+details[hidden]{display:none}
+details p{max-width:62ch;line-height:1.6;font-size:16.5px}
+details p+p{margin-top:12px}
+summary{font-size:18px}
+@media(min-width:821px){.faq .sec-h{position:sticky;top:110px;align-self:start}}
+@media(max-width:820px){.faq{grid-template-columns:1fr}}
 
-.final{background:var(--lime);border-radius:36px;padding:56px 40px;display:flex;flex-direction:column;align-items:flex-start;gap:20px;color:var(--lime-ink)}
-.final h2{max-width:16ch}
-.final p{margin:0;font-size:18px;max-width:44ch}
-@media(max-width:600px){.final{padding:36px 24px;border-radius:28px}}
+/* final with the remote that watches you */
+.final .card{position:relative;overflow:hidden;padding:clamp(32px,5vw,72px);display:grid;grid-template-columns:1.3fr .7fr;gap:30px;align-items:center}
+.final .txt{display:grid;gap:22px;justify-items:start;min-width:0}
+.eyer{justify-self:center;position:relative;width:200px;height:580px;border-radius:70px;background:#141414;display:grid;justify-items:center;align-content:start;padding-top:26px;gap:18px;transform:rotate(-8deg)}
+.eyer .pw{justify-self:end;margin-right:26px;width:34px;height:34px;border-radius:50%;background:#FAFAF8;border:0;cursor:pointer;display:grid;place-items:center;color:#141414;font-size:15px}
+.eyer .ring{position:relative;width:146px;height:146px;border-radius:50%;background:var(--lime);display:grid;place-items:center}
+.eyer .ball{width:74px;height:74px;border-radius:50%;background:#FAFAF8;display:grid;place-items:center;will-change:transform;box-shadow:inset 0 -4px 0 rgba(0,0,0,.06)}
+.eyer .pupil{width:24px;height:24px;border-radius:50%;background:#141414;will-change:transform;transition:height .12s}
+.eyer.blink .pupil{height:3px}
+.eyer .pair{display:flex;gap:16px}
+.eyer .pair button,.eyer .pair span{width:58px;height:58px;border-radius:50%;border:0;display:grid;place-items:center;font-size:20px;color:#141414;cursor:pointer}
+.eyer .vol{width:58px;height:110px;border-radius:30px;background:#FAFAF8;display:grid;align-content:space-between;justify-items:center;padding:12px 0;font-size:22px;color:#141414}
+.eyer .mini{display:grid;gap:16px}
+.eyer .mini span{width:58px;height:58px;border-radius:50%;background:#FAFAF8;display:grid;place-items:center;font-size:15px;color:#141414}
+.eyer .low{display:flex;gap:16px}
+.eyer svg{width:22px;height:22px;fill:none;stroke:#141414;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.eyer .logo{margin-top:8px;width:84px;filter:invert(1);opacity:.9}
+@media(max-width:760px){.final .card{grid-template-columns:1fr}.eyer{transform:rotate(-6deg) scale(.9)}}
+.ft{padding-block:20px 40px}
+.ft .w{display:grid;gap:40px}
+.ft-top{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:start}
+.ft-ig{display:flex;align-items:center;gap:18px;padding:18px 24px 18px 18px;border-radius:30px;background:var(--glass,var(--card));border:1px solid var(--line);text-decoration:none;color:var(--ink);transition:transform .5s var(--ease),background .3s}
+.ft-ig:hover{transform:translateY(-3px)}
+.ft-ig .ic{width:64px;height:64px;border-radius:20px;background:var(--lime);color:#141414;display:grid;place-items:center;flex:none}
+.ft-ig .ic svg{width:30px;height:30px}
+.ft-ig small{display:block;font-size:14px;color:var(--ink-3)}
+.ft-ig b{display:block;font-size:clamp(24px,2.8vw,36px);font-weight:500;letter-spacing:-.04em;line-height:1.1}
+.ft-ig .ar{margin-left:auto;font-size:26px}
+.ft-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.ft-cols div{display:grid;gap:10px;align-content:start}
+.ft-cols .h{font-size:14px;color:var(--ink-3)}
+.ft-cols a{text-decoration:none;font-size:16px;color:var(--ink);width:fit-content;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .35s}
+.ft-cols a:hover{background-size:100% 1px}
+.ft-bot{display:flex;justify-content:space-between;align-items:center;padding-top:22px;border-top:1px solid var(--line)}
+.ft-bot img{height:30px;filter:var(--logo-f);display:block}
+.ft-bot .up{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:var(--card);text-decoration:none;font:500 15px var(--f);letter-spacing:-.01em;color:var(--ink)}
+.ft-bot .up:hover{background:var(--solid);color:var(--on-solid)}
+@media(max-width:820px){.ft-top{grid-template-columns:1fr}}
+@media(max-width:440px){.ft-cols{grid-template-columns:1fr 1fr}.ft-ig{padding:14px 16px 14px 14px;gap:14px}.ft-ig .ic{width:52px;height:52px;border-radius:16px}}
 
-footer{padding:40px 0 calc(40px + env(safe-area-inset-bottom));color:var(--ink2);font-size:14px}
-.ft{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
-.ft nav{display:flex;gap:18px;flex-wrap:wrap}
-.ft a{text-decoration:none}.ft a:hover{color:var(--ink)}
+@media(prefers-reduced-motion:reduce){
+ .rv{opacity:1;transform:none;transition:none}
+ .hero h1 .ln span,.hero .fade{animation:none;transform:none;opacity:1}
+ .loader{animation-duration:.01s;animation-delay:.2s}
+ .caret{animation:none}
+ .mani .ch{opacity:1}
+}
 </style>
-</head>
-<body>
-<header><div class="wrap hd">
-  <a href="#top" aria-label="content.pult"><span class="mk" role="img" aria-label="content.pult"></span></a>
-  <nav aria-label="Розділи"><a href="#features">Можливості</a><a href="#who">Для кого</a><a href="#own">Під себе</a><a href="#tariffs">Тарифи</a><a href="#faq">Питання</a></nav>
-  <a class="btn ghost" href="https://app.contentpult.com.ua/" id="loginTop">Увійти</a>
+
+<div class="loader" aria-hidden="true"><img src="/logo.svg" alt=""></div>
+
+<div class="topbar" id="topbar"><div class="w">
+ <a href="#final"><b>Скоро</b> · Пульт майже готовий<span class="long"> — займи місце в першій хвилі</span> ↗</a>
+ <button type="button" id="tbx" aria-label="Закрити">×</button>
+</div></div>
+
+<header><div class="w nav">
+ <a class="brand" href="#top" aria-label="content.pult — на початок"><img src="/logo.svg" alt="content.pult"></a>
+ <ul><li><a href="#features">Можливості</a></li><li><a href="#who">Для кого</a></li><li><a href="#pricing">Тарифи</a></li><li><a href="#reviews">Відгуки</a></li><li><a href="#faq">Питання</a></li></ul>
+ <a class="btn" href="https://app.contentpult.com.ua">Увійти</a>
+ <a class="btn solid" href="#pricing">Обрати тариф</a>
 </div></header>
 
-<main id="top">
-<div class="wrap hero">
-  <div>
-    <span class="eyebrow"><i>©</i>робоче місце для SMM і не тільки</span>
-    <h1>Усі клієнти в&nbsp;<em>одному пульті</em></h1>
-    <p class="sub">Контент-план, задачі, зйомки, тексти, брифи й звіти. Без табличок, чатів і нотаток у п'яти місцях.</p>
-    <div class="cta"><a class="btn solid" href="#tariffs">Обрати тариф</a><a class="btn ghost" href="#features">Що всередині</a></div>
-    <div class="price-note">Від <span class="mono">229 грн</span> на місяць</div>
+<section class="hero" id="top" data-theme-sec="light">
+ <div class="w">
+  <div class="copy">
+   <h1><span class="ln"><span>Усі клієнти.</span></span><span class="ln"><span><b>Один пульт.</b></span></span></h1>
+   <p class="lead fade" style="animation-delay:1.6s">План, стрічка, задачі, брифи, зйомки й погодження всіх проєктів в одному місці. Без двадцяти вкладок і «скинь ще раз».</p>
+   <div class="ctas fade" style="animation-delay:1.75s"><a class="btn solid mag" href="#pricing">Обрати тариф</a><a class="btn mag" href="https://app.contentpult.com.ua">Увійти в кабінет</a></div>
   </div>
-  <div class="mock" aria-hidden="true">
-    <div class="m-side"><span class="mk"></span><span class="on"><b></b>Сьогодні</span><span><b></b>Задачі</span><small>Контент</small><span><b></b>Контент-план</span><span><b></b>Стрічка</span><span><b></b>Зйомки</span><small>Матеріали</small><span><b></b>Ідеї</span><span><b></b>Брифи</span><small>Цифри</small><span><b></b>Аналітика</span></div>
-    <div class="m-main">
-      <div class="m-t">Сьогодні</div>
-      <div class="m-hero"><div class="d"><b>24</b><span>листопада<br>вівторок</span></div><p>Бонжур. Сьогодні <b>2 публікації</b> і <b>зйомка о 10:00</b>. І ще 2 хвости.</p></div>
-      <div class="m-row">
-        <div class="m-card"><h4>План дня</h4><div class="m-shoot">Зйомка нового меню · 10:00</div><div class="m-it" style="--pc:#F4A3C0"><span>Рілс: шлях страви до гостя</span><em style="--sc:#FF8A47"><i></i>монтаж</em></div><div class="m-it" style="--pc:#B9C4F2"><span>Сторіс: афіша вихідних</span><em style="--sc:#F27DA8"><i></i>у клієнта</em></div></div>
-        <div class="m-card"><h4>Горить</h4><div class="m-it" style="--pc:#9AD0B0"><span>Анонс поп-апу</span><em style="--sc:#B8B8B2"><i></i>ідея</em></div><div class="m-it" style="--pc:#F2A999"><span>Звіт за листопад</span><em style="--sc:#8FA6F5"><i></i>завтра</em></div></div>
-      </div>
+  <div class="tvs" id="tvs">
+   <div class="tv" id="tv">
+    <div class="scr" id="scr">
+     <div class="osd" id="osd"><span id="chn">CH 01</span><b id="chl">Сьогодні</b></div>
+     <div class="view" id="view" aria-live="polite"></div>
+     <div class="dots" id="dots"></div>
+     <div class="noise" id="noise"></div>
+     <div class="toast" id="toast"></div>
+     <div class="off"><img src="/logo.svg" alt=""><span>натисни ⏻ на пульті</span></div>
     </div>
+   </div>
+   <div class="rc" id="rc" role="group" aria-label="Пульт: керування екраном">
+    <button class="pw" data-k="power" aria-label="Увімкнути або вимкнути екран"><svg viewBox="0 0 24 24"><path d="M12 3v8"/><path d="M6.3 6.8a8 8 0 1 0 11.4 0"/></svg></button>
+    <div class="ring">
+     <button class="ar u" data-k="up" aria-label="Вгору"></button>
+     <button class="ar rr" data-k="right" aria-label="Наступний канал"></button>
+     <button class="ar d" data-k="down" aria-label="Вниз"></button>
+     <button class="ar l" data-k="left" aria-label="Попередній канал"></button>
+     <button class="ok" data-k="ok" aria-label="ОК — зробити дію" id="hball"><span class="pp" id="hpupil"></span></button>
+    </div>
+    <div class="two">
+     <button class="rd bk" data-k="back" aria-label="Назад"><svg viewBox="0 0 24 24"><path d="M19 12H5"/><path d="M11 6l-6 6 6 6"/></svg></button>
+     <button class="rd ig" data-k="ig" aria-label="Стрічка Instagram"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.8" cy="7.2" r=".6" fill="#141414"/></svg></button>
+    </div>
+    <div class="low">
+     <div class="col">
+      <button class="rd" data-k="play" aria-label="Автоперемикання каналів" id="bplay"><svg viewBox="0 0 24 24"><path d="M5 5l9 7-9 7z"/><path d="M17 6v12M20.5 6v12"/></svg></button>
+      <button class="rd" data-k="mute" aria-label="Звук" id="bmute"><svg viewBox="0 0 24 24"><path d="M4 10v4h4l5 4V6L8 10z"/><path id="mx" d="M16.5 9.5l5 5M21.5 9.5l-5 5"/></svg></button>
+     </div>
+     <div class="vol" style="height:138px"><button data-k="plus" aria-label="Додати"><svg viewBox="0 0 24 24"><path d="M12 6v12M6 12h12"/></svg></button><button data-k="minus" aria-label="Прибрати"><svg viewBox="0 0 24 24"><path d="M6 12h12"/></svg></button></div>
+    </div>
+    <img class="logo" src="/logo.svg" alt="">
+   </div>
+   <div class="nudge" aria-hidden="true"><span>тисни кнопки на пульті,<br><b>не бійся</b></span><svg viewBox="0 0 120 60"><path d="M4 46 C 36 8, 80 6, 112 30"/><path d="M107.6 16.7 L112 30 L98 29.5"/></svg></div>
   </div>
+ </div>
+</section>
+
+<div class="mq" aria-hidden="true">
+ <div class="row" id="mq1"></div>
+ <div class="row" id="mq2"></div>
 </div>
 
-<section id="features"><div class="wrap">
-  <div class="lbl">Що всередині</div>
-  <div class="sh"><h2>Від ідеї до звіту клієнту</h2><p>Кожен проєкт має свій колір. Перемикаєшся між клієнтами в один тап.</p></div>
-  <div class="feat">
-    <div class="f big"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></span><h3>Контент-план</h3><p>Місяць, дошка або список по тижнях. Свята й інфоприводи вже в календарі. Перетягуєш допис на інший день — і все.</p><div class="chips"><span>Рілс · Сторіс · Карусель</span><span>Статуси від ідеї до «вийшов»</span><span>Посилання клієнту на погодження</span></div></div>
-    <div class="f"><span class="ic" style="--bg:var(--pink)"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg></span><h3>Стрічка</h3><p>Сітка Instagram наперед. Бачиш, як профіль виглядатиме, ще до публікації.</p></div>
-    <div class="f"><span class="ic" style="--bg:var(--lime)"><svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></span><h3>Зйомки</h3><p>Шот-лист, референси й брифи в одній картці. Відмічаєш кадри прямо на майданчику.</p></div>
-    <div class="f"><span class="ic" style="--bg:var(--lilac)"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 12l3 3 5-6"/></svg></span><h3>Задачі й години</h3><p>Задачі по проєктах, таймер і години за місяць. Звіт для акту — однією кнопкою.</p></div>
-    <div class="f"><span class="ic" style="--bg:var(--sky)"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M9 9h3M9 13h7M9 17h7"/></svg></span><h3>Брифи</h3><p>Надсилаєш клієнту посилання. Він заповнює без реєстрації, відповіді падають у картку проєкту.</p></div>
-    <div class="f"><span class="ic" style="--bg:var(--sage)"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.8.8 1 1.5 1 2.5h6c0-1 .2-1.7 1-2.5A6 6 0 0 0 12 3z"/></svg></span><h3>Ідеї й тексти</h3><p>Свої ідеї, референси, побажання клієнта і банк готових текстів з пошуком.</p></div>
-    <div class="f"><span class="ic" style="--bg:var(--pink)"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><h3>Аналітика</h3><p>Закидаєш експорт з Meta або вносиш цифри вручну. Підсумок для звіту копіюється текстом.</p></div>
-  </div>
-</div></section>
+<section class="mani">
+ <div class="w">
+  <p id="mani">Пост у трьох чатах, бриф у голосовому, візуали «десь на Диску». Знайомо всім. Тому є пульт — одне робоче місце для SMM: усі клієнти, контент-план, стрічка, задачі, брифи, зйомки, файли й погодження. Відкриваєш один екран і бачиш, що горить сьогодні.</p>
+ </div>
+</section>
 
-<section id="who"><div class="wrap">
-  <div class="lbl">Для кого</div>
-  <div class="sh"><h2>Для всіх, хто робить контент</h2><p>Обираєш свою роль — у меню лишаються тільки потрібні розділи.</p></div>
-  <div class="who">
-    <div class="w" style="--bg:var(--lime)"><b>SMM-фрилансер</b><span>кілька клієнтів, плани, звіти</span></div>
-    <div class="w" style="--bg:var(--card)"><b>Контент-мейкер</b><span>ідеї, зйомки, стрічка</span></div>
-    <div class="w" style="--bg:var(--pink)"><b>Фото й відео</b><span>зйомки, файли, години</span></div>
-    <div class="w" style="--bg:var(--lilac)"><b>Копірайтер</b><span>тексти, брифи, дедлайни</span></div>
-    <div class="w" style="--bg:var(--sky)"><b>Маркетолог</b><span>план, погодження, цифри</span></div>
-    <div class="w" style="--bg:var(--sage)"><b>Команда</b><span>до 5 людей, ролі й доступи</span></div>
-  </div>
-</div></section>
-
-<section id="own"><div class="wrap own">
+<section class="chaos" id="chaos">
+ <div class="pin"><div class="w">
   <div class="txt">
-    <div class="lbl">Під себе</div>
-    <h2>Твій пульт, твої правила</h2>
-    <ul>
-      <li>Ховаєш розділи, які не потрібні. Дані нікуди не зникають.</li>
-      <li>Сам обираєш, що стоїть у меню на телефоні.</li>
-      <li>Вирішуєш, які блоки бачиш зранку на головній.</li>
-      <li>Світла, темна або кольорова тема.</li>
-    </ul>
+   <div class="hd"><h2 id="hsw">Де інфо<br>про <b>проєкт?</b></h2></div>
+   <p class="lead">Бренд-бук у пошті, лого в чаті, референси на Диску, план у таблиці «для себе». Гортай — і все збереться в одну картку проєкту.</p>
   </div>
-  <div class="pal">
-    <div class="sw" id="sw"><i style="background:#D9E2A2" data-c="#D9E2A2"></i><i style="background:#F4A3C0" data-c="#F4A3C0"></i><i style="background:#D8D7FC" data-c="#D8D7FC"></i><i style="background:#C8E1FF" data-c="#C8E1FF"></i><i style="background:#E1ECDF" data-c="#E1ECDF"></i><i style="background:#141414" data-c="#141414"></i></div>
-    <div class="mini" id="mini" style="background:#D9E2A2"><b>24</b>Сьогодні <strong>2 публікації</strong>. Решта почекає.</div>
+  <div class="board" id="board">
+   <div class="pc" id="pc"><b style="top:26px">Одна картка проєкту</b></div>
   </div>
-</div></section>
+ </div></div>
+</section>
 
-<section id="tariffs"><div class="wrap">
-  <div class="lbl">Тарифи</div>
-  <div class="sh"><h2>Два тарифи. Без зірочок</h2><p>Платиш щомісяця, скасувати можна будь-коли.</p></div>
-  <div class="plans">
-    <div class="plan" id="solo">
-      <div class="nm"><b>Соло</b></div>
-      <div class="pr"><b class="mono">229</b><span>грн / місяць</span></div>
-      <p class="for">Для однієї людини, яка веде кілька проєктів.</p>
-      <ul>
-        <li>Усі розділи: план, стрічка, задачі, зйомки, ідеї, тексти, файли</li>
-        <li>Брифи для клієнтів за посиланням</li>
-        <li>Посилання клієнту на погодження плану</li>
-        <li>Аналітика, звіт за місяць і години</li>
-        <li>Налаштування пульта під себе</li>
-      </ul>
-      <a class="btn solid" href="https://ig.me/m/content.pult" target="_blank" rel="noopener" data-plan="solo">Хочу Соло</a>
-    </div>
-    <div class="plan team" id="team">
-      <div class="nm"><b>Команда</b><span class="tag">до 5 людей</span></div>
-      <div class="pr"><b class="mono">399</b><span>грн / місяць</span></div>
-      <p class="for">Для команди чи агенції: ядро плюс фрилансери на окремі проєкти.</p>
-      <ul>
-        <li>Усе, що є в Соло</li>
-        <li>До 5 людей в одному пульті</li>
-        <li>Ролі: SMM, дизайнер, копірайтер, таргетолог та інші</li>
-        <li>Доступ лише до потрібних проєктів</li>
-        <li>Задачі на конкретних людей</li>
-      </ul>
-      <a class="btn" href="https://ig.me/m/content.pult" target="_blank" rel="noopener" data-plan="team">Хочу Команду</a>
-    </div>
+<section class="band" id="features" data-theme-sec="dark">
+ <div class="w">
+  <div class="sec-h rv"><h2>Увімкни <b>все</b>.</h2><p class="lead">Кожна кнопка пульта закриває окремий біль SMM. Клацай по перемикачах.</p></div>
+  <div class="sw rv d1">
+   <div class="tog" id="tog" role="group" aria-label="Функції пульта"></div>
+   <div class="panel" id="panel" aria-live="polite">
+    <div class="top"><span id="pn">01 / 09</span><span id="pk">план</span></div>
+    <div class="swap" id="swap"></div>
+   </div>
   </div>
-  <div class="safe"><i>✓</i><span><b>Дані не зникають.</b> Якщо оплата не пройшла або ти скасуєш підписку, акаунт і все в ньому зберігаються. Поновиш — продовжиш з того ж місця.</span></div>
-</div></section>
+ </div>
+</section>
 
-<section id="faq"><div class="wrap">
-  <div class="lbl">Питання</div>
-  <div class="sh"><h2>Коротко про важливе</h2></div>
-  <div class="faq">
-    <details><summary>Як підключитися?</summary><p>Напиши нам в Instagram, який тариф обираєш. Надішлемо доступ і реквізити. Онлайн-оплату прямо на сайті додамо згодом.</p></details>
-    <details><summary>Можна почати з Соло, а потім перейти на Команду?</summary><p>Так. Усі проєкти й дані лишаються, просто додаються люди й ролі.</p></details>
-    <details><summary>Що буде з даними, якщо я не оплачу вчасно?</summary><p>Нічого не видаляється. Акаунт і все в ньому чекають, поки ти поновиш підписку.</p></details>
-    <details><summary>Працює з телефона?</summary><p>Так. Пульт відкривається в браузері на телефоні й ноутбуці. На телефоні його можна додати на головний екран, як застосунок.</p></details>
-    <details><summary>Клієнту треба реєструватися?</summary><p>Ні. Бриф і план на погодження клієнт відкриває за посиланням.</p></details>
+<section class="client">
+ <div class="w"><div class="card rv">
+  <div style="display:grid;gap:18px;min-width:0">
+   <h2>Сторінка<br><b>для клієнта</b></h2>
+   <p class="lead">Окреме посилання, де клієнт бачить свій план і стрічку, погоджує дописи й лишає коментарі.</p>
+   <ul><li><span class="dot"></span>без доступу до твоєї кухні</li><li><span class="dot"></span>без скрінів у месенджер</li><li><span class="dot"></span>без «скинь ще раз, будь ласка»</li></ul>
   </div>
-</div></section>
+  <div class="phone" id="phone"><div class="pscr">
+   <h4>План на тиждень</h4>
+   <div class="feedg" style="padding:0;background:none"><i style="background:var(--pink)"></i><i style="background:var(--blush)"></i><i style="background:var(--lime)"></i><i style="background:var(--lilac)"></i><i style="background:#141414"></i><i style="background:var(--sky)"></i></div>
+   <div class="dm" style="font-size:14px">Пт 18:00 · Reels: бекстейдж лукбуку</div>
+   <div class="acts"><button type="button">коментар</button><button type="button" class="l" id="approve">погодити ✓</button></div>
+   <div class="ok"><div><div class="dm" style="justify-content:center;text-align:center;background:var(--lime);font-size:14px">Погоджено. Без пʼяти нагадувань</div></div></div>
+  </div></div>
+ </div></div>
+</section>
 
-<section><div class="wrap">
-  <div class="final">
-    <span class="mk" style="background:var(--lime-ink)"></span>
-    <h2>Менше хаосу. Більше контенту</h2>
-    <p>Перенеси клієнтів у пульт і побач тиждень на одному екрані.</p>
-    <div class="cta" style="margin:0"><a class="btn solid" href="#tariffs">Обрати тариф</a><a class="btn ghost" style="border-color:rgba(23,32,0,.3)" href="https://app.contentpult.com.ua/" id="loginBottom">Увійти в пульт</a></div>
+<section class="mine" id="mine" style="padding-top:0">
+ <div class="w"><div class="card rv">
+  <div style="display:grid;gap:18px;min-width:0">
+   <span class="lab">під себе</span>
+   <h2>Твій пульт,<br><b>твої правила</b></h2>
+   <ul><li><span class="dot"></span>Ховаєш розділи, які не потрібні. Дані нікуди не зникають.</li><li><span class="dot"></span>Сам обираєш, що стоїть у меню на телефоні.</li><li><span class="dot"></span>Вирішуєш, які блоки бачиш зранку на головній.</li><li><span class="dot"></span>Світла, темна або кольорова тема.</li></ul>
   </div>
-</div></section>
-</main>
+  <div class="myp"><div class="in2">
+   <span class="lab">тема</span>
+   <div class="mysw" id="mysw"><button type="button" class="on" style="background:#D9E2A2" data-c="#D9E2A2" aria-label="Лимонна"></button><button type="button" style="background:#F4A3C0" data-c="#F4A3C0" aria-label="Рожева"></button><button type="button" style="background:#D8D7FC" data-c="#D8D7FC" aria-label="Бузкова"></button><button type="button" style="background:#C8E1FF" data-c="#C8E1FF" aria-label="Блакитна"></button><button type="button" style="background:#E1ECDF" data-c="#E1ECDF" aria-label="Шавлієва"></button><button type="button" style="background:#141414" data-c="#141414" aria-label="Темна"></button></div>
+   <div class="myday" id="myday" style="background:#D9E2A2"><b>24</b><p>Сьогодні <strong>2 публікації</strong>. Решта почекає.</p></div>
+   <span class="lab">на головній — тапни, щоб сховати</span>
+   <div class="mytg" id="mytg"><button type="button" data-k="t">Задачі</button><button type="button" data-k="s">Зйомки</button><button type="button" data-k="a">Аналітика</button></div>
+   <div class="myrows"><div class="dm" data-k="t"><span class="t">Тексти на п'ятницю</span><span class="pill l">сьогодні</span></div><div class="dm" data-k="s"><span class="t">Зйомка лукбуку · 11:00</span><span class="pill">завтра</span></div><div class="dm" data-k="a"><span class="t">Охоплення за тиждень</span><span class="m">+18%</span></div></div>
+  </div></div>
+ </div></div>
+</section>
 
-<footer><div class="wrap ft">
-  <span>© content.pult</span>
-  <nav><a href="https://www.instagram.com/content.pult/" target="_blank" rel="noopener">Instagram</a><a href="#tariffs">Тарифи</a><a href="https://app.contentpult.com.ua/">Увійти</a></nav>
+<section class="mob" style="padding-top:0">
+ <div class="w"><div class="card rv">
+  <div style="min-width:0">
+   <h2>І все це —<br><b>з телефона, як апка</b></h2>
+   <p>Додаєш пульт на головний екран, і всі клієнти в кишені. Погодити допис чи глянути план можна на зйомці, в дорозі або в черзі за кавою.</p>
+  </div>
+  <div class="dockw">
+   <div class="dock" id="dock"><i style="background:#F4A3C0"></i><i style="background:#D8D7FC"></i><i style="background:#C8E1FF"></i><i class="slot"><img src="/logo.svg" alt=""></i></div>
+   <button type="button" class="dockbtn" id="dockbtn">Додати на головний екран</button>
+  </div>
+ </div></div>
+</section>
+
+<section id="who" style="padding-top:0">
+ <div class="blobs" aria-hidden="true"><i style="width:520px;height:520px;background:#D8D7FC;left:-8%;top:4%;animation-delay:-0s"></i><i style="width:460px;height:460px;background:#DBF07A;left:62%;top:14%;animation-delay:-4s"></i><i style="width:500px;height:500px;background:#F4A3C0;left:8%;top:32%;animation-delay:-8s"></i><i style="width:440px;height:440px;background:#C8E1FF;left:66%;top:46%;animation-delay:-2s"></i><i style="width:480px;height:480px;background:#F7DDE8;left:-4%;top:62%;animation-delay:-6s"></i><i style="width:420px;height:420px;background:#E1ECDF;left:60%;top:74%;animation-delay:-10s"></i><i style="width:460px;height:460px;background:#DBF07A;left:20%;top:70%;animation-delay:-3s"></i></div>
+ <div class="w">
+  <div class="sec-h rv"><h2>Для SMM —<br><b>і не тільки</b></h2><p class="lead">Для всіх, хто веде соцмережі: свої, клієнтські чи цілою командою.</p></div>
+  <div class="stack" id="stack">
+   <div class="sc" style="--c:#D8D7FC"><div class="scl"><h3>SMM-<b>фрилансер</b></h3><p class="d">У кожного клієнта своя картка: план, задачі, файли й бриф. Відкриваєш потрібну і одразу бачиш, на чому зупинилась.</p><ul><li>план усіх проєктів</li><li>бриф за посиланням</li><li>сторінка для клієнта</li></ul></div><div class="scr2"><span class="big" aria-hidden="true">01</span></div></div>
+   <div class="sc" style="--c:#DBF07A"><div class="scl"><h3>Агенція <b>або команда</b></h3><p class="d">Один кабінет на всіх. Видно, хто що веде, що вже погоджено і що горить сьогодні.</p><ul><li>спільний кабінет</li><li>ролі</li><li>статуси погоджень</li></ul></div><div class="scr2"><span class="big" aria-hidden="true">02</span></div></div>
+   <div class="sc" style="--c:#F4A3C0"><div class="scl"><h3>Маркетолог <b>у компанії</b></h3><p class="d">План, стрічка й погодження з керівником в одному місці. Звіт за місяць збираєш з аналітики, яка лежить поруч із планом.</p><ul><li>стрічка наперед</li><li>погодження</li><li>аналітика</li></ul></div><div class="scr2"><span class="big" aria-hidden="true">03</span></div></div>
+   <div class="sc" style="--c:#C8E1FF"><div class="scl"><h3>Контент-<b>мейкер</b></h3><p class="d">Записуєш ідею одразу в план, дивишся, як вона ляже в стрічку, і плануєш під неї зйомку.</p><ul><li>план</li><li>стрічка наперед</li><li>зйомки</li></ul></div><div class="scr2"><span class="big" aria-hidden="true">04</span></div></div>
+   <div class="sc" style="--c:#F7DDE8"><div class="scl"><h3>Фотограф <b>або відеограф</b></h3><p class="d">Що, де, коли і для кого — у картці зйомки. Готові файли лежать у сховищі проєкту, а не в посиланні, яке вже згоріло.</p><ul><li>зйомки</li><li>файлове сховище</li><li>дедлайни</li></ul></div><div class="scr2"><span class="big" aria-hidden="true">05</span></div></div>
+   <div class="sc" style="--c:#E1ECDF"><div class="scl"><h3>Копі<b>райтер</b></h3><p class="d">Текст живе в дописі поруч із візуалом. Клієнт погоджує або лишає коментар там само, без скрінів у месенджер.</p><ul><li>тексти в плані</li><li>коментарі клієнта</li><li>погодження</li></ul></div><div class="scr2"><span class="big" aria-hidden="true">06</span></div></div>
+   <div class="sc" style="--c:#DBF07A"><div class="scl"><h3>Бренд <b>без агенції</b></h3><p class="d">Один екран замість купи сервісів: що виходить, коли і що вже готово. Відкривається з телефона, як звичайна апка.</p><ul><li>простий план</li><li>нагадування</li><li>з телефона</li></ul></div><div class="scr2"><span class="big" aria-hidden="true">07</span></div></div>
+  </div>
+ </div>
+</section>
+
+<section style="padding-top:0">
+ <div class="w">
+  <div class="sec-h rv"><h2>Три кроки<br><b>до порядку</b></h2></div>
+  <div class="steps">
+   <div class="card rv"><span class="num">01</span><h3>Обери тариф</h3><p>Під себе або під цілу команду.</p></div>
+   <div class="card rv d1"><span class="num">02</span><h3>Додай проєкти</h3><p>Кожен клієнт отримує свою картку: план, задачі, файли, бриф.</p></div>
+   <div class="card rv d2"><span class="num">03</span><h3>Поділись із клієнтом</h3><p>Надішли посилання на бриф чи сторінку погодження.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="glassy" id="pricing" style="padding-top:0">
+ <div class="blobs" aria-hidden="true"><i style="width:480px;height:480px;background:#D8D7FC;left:-6%;top:10%;animation-delay:-0s"></i><i style="width:440px;height:440px;background:#DBF07A;left:40%;top:40%;animation-delay:-5s"></i><i style="width:460px;height:460px;background:#F4A3C0;left:70%;top:8%;animation-delay:-9s"></i></div>
+  <div class="w">
+  <div class="sec-h rv"><h2>Обери <b>свій пульт</b></h2></div>
+  <div class="plans plans2">
+   <div class="card plan rv" id="solo"><div class="top"><h3>Соло</h3></div><div class="amt">₴229 <small>/ міс</small></div><ul><li>для однієї людини, кілька проєктів</li><li>план, стрічка, задачі, зйомки, ідеї, тексти, файли</li><li>брифи й погодження за посиланням</li><li>аналітика, звіт за місяць і години</li><li>з телефона як апка</li></ul><a class="btn solid mag" href="https://ig.me/m/content.pult" target="_blank" rel="noopener">Хочу Соло</a></div>
+   <div class="card plan best rv d1" id="team"><div class="top"><h3>Команда</h3><span class="chip">до 5 людей</span></div><div class="amt">₴399 <small>/ міс</small></div><ul><li>усе з тарифу Соло</li><li>до 5 людей в одному пульті</li><li>ролі: SMM, дизайнер, копірайтер, таргетолог</li><li>доступ лише до потрібних проєктів</li><li>задачі на конкретних людей</li></ul><a class="btn lime mag" href="https://ig.me/m/content.pult" target="_blank" rel="noopener">Хочу Команду</a></div>
+  </div>
+  <p class="draft" style="color:var(--ink-3);font-size:14px">Дані не зникають: якщо оплата не пройшла або підписку скасовано, акаунт і все в ньому зберігаються. Поновиш — продовжиш з того ж місця.</p>
+ </div>
+</section>
+
+<section id="reviews" style="padding-top:0">
+ <div class="w">
+  <div class="sec-h rv"><h2>Що кажуть<br><b>тестувальники</b></h2></div>
+  <div class="rvw rv d1">
+   <div class="card qcard">
+    <div class="q" aria-hidden="true">“</div>
+    <div class="body" id="rbody"></div>
+    <div class="ctrl"><button type="button" id="rprev" aria-label="Попередній">←</button><button type="button" id="rnext" aria-label="Наступний">→</button><span class="cnt" id="rcnt">01 / 03</span></div>
+   </div>
+   <div class="ghost" aria-hidden="true"><span id="gnum" style="color:var(--ink-3);font-size:14px">наступний · 02</span><p>Місце для ще одного відгуку</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="glassy" id="faq" style="padding-top:0">
+ <div class="blobs" aria-hidden="true"><i style="width:460px;height:460px;background:#C8E1FF;left:60%;top:10%;animation-delay:-2s"></i><i style="width:420px;height:420px;background:#F7DDE8;left:-8%;top:50%;animation-delay:-7s"></i><i style="width:400px;height:400px;background:#DBF07A;left:55%;top:70%;animation-delay:-4s"></i></div>
+  <div class="w faq">
+  <div class="sec-h rv" style="margin:0;align-content:start"><h2>Часті<br><b>питання</b></h2>
+  </div>
+  <div class="list rv d1" id="flist">
+   <details open><summary>Навіщо пульт, якщо все й так працює в таблиці й чатах?</summary><p>Працює, поки клієнтів два. Далі план живе в таблиці, правки в чаті, візуали на Диску, бриф у голосовому на чотири хвилини, а дедлайни в голові. І більшість часу йде не на контент, а на пошук: де остання версія тексту, чи погодив клієнт, куди поділось лого без фону.</p><p>Пульт збирає це в одне місце. Відкриваєш проєкт і бачиш план, тексти, візуали, бриф, файли й статус погодження. Відкриваєш «Сьогодні» і бачиш, що горить по всіх клієнтах одразу. Без «зараз знайду і скину».</p></details>
+   <details><summary>Чим пульт відрізняється від Notion чи Google Таблиць?</summary><p>Notion і таблиці можна налаштувати під SMM, але це окремий проєкт: шаблони, колонки, статуси, формули. А потім ще пояснити клієнту, куди дивитися, і сподіватися, що він нічого не зламає.</p><p>Пульт уже зібраний під роботу SMM-ника. План зі статусами, стрічка наперед, бриф за посиланням і сторінка погодження для клієнта працюють одразу. Нічого не треба будувати: відкрила й працюєш.</p></details>
+   <details><summary>Що саме вміє пульт?</summary><p>Контент-план: списком, календарем або дошкою, у кожному дописі дата, формат, текст, візуал і статус. Стрічка: видно, як ляже сітка, ще до публікації, тож три схожі пости поруч ти помітиш заздалегідь. Задачі з дедлайнами й нагадуваннями, які приходять у твоє робоче поле.</p><p>Зйомки: що, де, коли і для кого, навіть якщо зйомка поки без проєкту. Файлове сховище по кожному проєкту: бренд-бук, лого, референси, відео. Аналітика: завантажуєш статистику, і цифри лежать поруч із планом, тож звіт за місяць збирається з одного місця.</p></details>
+   <details><summary>Як пульт працює з клієнтом?</summary><p>У клієнта є окреме посилання на його сторінку. Там лише його план і стрічка, кнопка «погодити» й коментарі. Твоїх задач, інших проєктів і нотаток він не бачить, а доступ до твого кабінету йому не потрібен.</p><p>Бриф працює так само: надсилаєш посилання, клієнт відповідає у зручний час, і відповіді одразу падають у картку проєкту. Погодження теж: клієнт дивиться текст і візуал, тисне «погодити» або лишає коментар просто біля допису. Ти бачиш статус одразу й не нагадуєш пʼять разів.</p></details>
+   <details><summary>Кому підійде пульт?</summary><p>SMM-фрилансерам, які ведуть кількох клієнтів. Агенціям і командам, яким треба бачити, хто що робить. Маркетологам у компанії, контент-мейкерам, копірайтерам, фотографам і брендам, які ведуть соцмережі самі.</p><p>Навіть якщо в тебе один-два проєкти, пульт знімає з голови купу дрібниць: усе по клієнту лежить в одній картці, а дедлайни нагадують про себе самі. А коли зʼявиться третій клієнт, система вже буде готова.</p></details>
+   <details><summary>Чи можна працювати з телефона?</summary><p>Так. Пульт додається на головний екран і відкривається як звичайна апка. План, задачі, стрічка й погодження під рукою, навіть коли ти на зйомці, в дорозі чи в черзі за кавою.</p><p>Клієнт написав «а що там на пʼятницю?» — відкриваєш пульт і відповідаєш за секунду, без ноутбука.</p></details>
+   <details><summary>Можна працювати командою?</summary><p>Так, для цього є тариф «Команда»: спільний кабінет і ролі для учасників. Видно, хто який проєкт веде, що вже погоджено і що горить сьогодні.</p><p>Задачі не губляться між чатами, а на планірці менше питань «а хто це мав зробити?».</p></details>
+   <details><summary>Скільки коштує і як скасувати підписку?</summary><p>Два тарифи: «Соло» — 229 грн на місяць для тих, хто веде проєкти сам, і «Команда» — 399 грн на місяць, до 5 людей з ролями й доступами.</p><p>Платиш щомісяця, скасувати можна будь-коли. Дані після скасування не зникають: поновиш підписку — і все на місці.</p></details>
+   <details><summary>Коли запуск?</summary><p>Пульт уже майже готовий: зараз його тестують перші користувачі, а ми доводимо деталі. Слідкуй за нашим інстаграмом <a href="https://www.instagram.com/content.pult/" target="_blank" rel="noopener">@content.pult</a>: там першими скажемо, коли можна буде натиснути «старт».</p></details>
+  </div>
+ </div>
+</section>
+
+<section class="final glassy" id="final" style="padding-top:0">
+ <div class="blobs" aria-hidden="true"><i style="width:460px;height:460px;background:#DBF07A;left:55%;top:0%;animation-delay:-3s"></i><i style="width:420px;height:420px;background:#D8D7FC;left:-5%;top:30%;animation-delay:-8s"></i></div>
+  <div class="w"><div class="card rv">
+  <div class="txt">
+   <h2>Пульт уже<br><b>майже готовий</b></h2>
+   <p class="lead">Він уже стежить за дедлайнами. І трохи за тобою. Обери тариф або увійди, якщо кабінет уже є.</p>
+   <div class="ctas"><a class="btn solid mag" href="#pricing">Обрати тариф</a><a class="btn mag" href="https://app.contentpult.com.ua">Увійти в кабінет</a></div>
+  </div>
+  <div class="eyer" id="eyer">
+   <button type="button" class="pw" id="pw" aria-label="Змінити тему">⏻</button>
+   <div class="ring"><div class="ball" id="ball"><div class="pupil" id="pupil"></div></div></div>
+   <div class="pair"><button type="button" id="up" style="background:var(--pink)" aria-label="Нагору">←</button><span style="background:var(--lilac)" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.8" cy="7.2" r=".6" fill="#141414"/></svg></span></div>
+   <div class="low"><div class="mini"><span aria-hidden="true">▷‖</span><span aria-hidden="true">◁×</span></div><div class="vol" aria-hidden="true"><span>+</span><span>−</span></div></div>
+   <img class="logo" src="/logo.svg" alt="">
+  </div>
+ </div></div>
+</section>
+
+<footer class="ft"><div class="w">
+ <div class="ft-top">
+  <a class="ft-ig" href="https://www.instagram.com/content.pult/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.8" cy="7.2" r=".7" fill="currentColor"/></svg></span><span><small>слідкуй за запуском</small><b>@content.pult</b></span><span class="ar">↗</span></a>
+  <nav class="ft-cols" aria-label="Футер">
+   <div><span class="h">Пульт</span><a href="#features">Можливості</a><a href="#who">Для кого</a><a href="#pricing">Тарифи</a><a href="#faq">Питання</a></div>
+   <div><span class="h">Кабінет</span><a href="https://app.contentpult.com.ua">Увійти</a><a href="#pricing">Обрати тариф</a></div>
+   <div><span class="h">Соцмережі</span><a href="https://www.instagram.com/content.pult/" target="_blank" rel="noopener">Instagram</a></div>
+  </nav>
+ </div>
+ <div class="ft-bot"><a href="#top" aria-label="На початок"><img src="/logo.svg" alt="content.pult"></a><a class="up" href="#top">Нагору <span aria-hidden="true">↑</span></a></div>
 </div></footer>
 
 <script>
-document.getElementById('sw').addEventListener('click',e=>{const i=e.target.closest('[data-c]');if(!i)return;const m=document.getElementById('mini');m.style.background=i.dataset.c;m.style.color=i.dataset.c==='#141414'?'#F1F1ED':''});
-// підсвітити тариф, якщо прийшли з пульта: #tariffs?plan=team або #team
-(function(){const h=location.hash.replace('#','');const el=document.getElementById(h);if(el&&el.classList.contains('plan')){el.style.outline='3px solid #D5F165';el.style.outlineOffset='4px';setTimeout(()=>el.scrollIntoView({block:'center'}),50)}})();
+(()=>{
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=s=>document.querySelector(s);
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+
+/* top bar */
+const tb=$('#topbar');
+$('#tbx').onclick=()=>tb.classList.add('gone');
+
+
+/* marquee rows */
+const W1=['план','бриф','зйомки','стрічка','погоджено ✓','файли','аналітика','дедлайни','клієнт_фінал_ТОЧНО.png','сторінка для клієнта'];
+const W2=['«скинь ще раз»','голосове 4:12','таблиця «для себе»','скрін з Фігми','переслане від клієнта','«де правки?»','20 вкладок','бриф у чаті'];
+const C=['var(--lilac)','var(--lime)','var(--pink)','var(--paper)','var(--sky)','var(--blush)','var(--sage)'];
+function fill(el,words,outline){let h='';for(let k=0;k<3;k++)words.forEach((w,i)=>{h+=outline&&i%2?`<span class="o">${w}</span>`:`<span style="background:${C[(i+k)%C.length]}">${w}</span>`});el.innerHTML=h}
+const mq1=$('#mq1'),mq2=$('#mq2');fill(mq1,W1);fill(mq2,W2,true);
+
+/* manifesto letters */
+const man=$('#mani');
+const words=man.textContent.split(' ');
+man.innerHTML=words.map(w=>'<span style="white-space:nowrap">'+[...w].map(c=>`<span class="ch">${c}</span>`).join('')+'</span>').join(' ');
+const chs=[...man.querySelectorAll('.ch')];
+
+/* chaos board */
+const BITS=[['brandbook_FINAL_2.pdf','var(--pink)'],['tone of voice.docx','var(--lime)'],['лого_без_фону.png','var(--sky)'],['moodboard_осінь.jpg','var(--lilac)'],['бриф_від_клієнта.pdf','var(--blush)'],['контент-план.xlsx','var(--paper)'],['reels_v2_точно.mp4','var(--sage)'],['референси · 47 фото','var(--lime)']];
+const SC=[[.02,.04,-14],[.55,.02,9],[.62,.30,-7],[.04,.36,8],[.36,.50,-11],[.58,.66,12],[.02,.76,-5],[.30,.18,5]];
+const board=$('#board'),pc=$('#pc');
+const bits=BITS.map(([t,c])=>{const d=document.createElement('div');d.className='bit';d.style.background=c;d.innerHTML=`<span class="ck">✓</span>${t}`;board.appendChild(d);return d});
+const hsw=$('#hsw');let hstate=0;
+
+/* switchboard */
+const F=[
+ ['план','#D8D7FC','Усі дописи<br><b>всіх проєктів</b>','Списком, календарем або дошкою. У кожному дата, формат, текст, візуал і статус.',
+  ()=>row('Пт · Reels: бекстейдж лукбуку','<span class="pill l">погоджено</span>')+row('Нд · Карусель «як носити срібло»','<span class="m">чернетка</span>')+row('Пн · Сторіз «день у шоурумі»','<span class="pill">на погодженні</span>')],
+ ['стрічка','#F7DDE8','Як виглядатиме<br><b>стрічка</b>','Бачиш сітку ще до публікації. Без макетів у Canva чи Фігмі до ночі.',
+  ()=>`<div class="feedg">${['#F4A3C0','#FAFAF8','#DBF07A','#141414','#D8D7FC','#C8E1FF'].map(c=>`<i style="background:${c};border:1px solid #E6E6E2"></i>`).join('')}</div>`],
+ ['задачі','#C8E1FF','Дедлайни,<br><b>які не забуваються</b>','Нагадування приходять просто у твоє робоче поле. Більше ніяких «ой, це ж було на вчора».',
+  ()=>row('🔔 Тексти до запуску дропу','<span class="m">сьогодні 18:00</span>')+row('🔔 Зйомка прикрас на склі','<span class="m">завтра 11:00</span>')],
+ ['брифи','#E1ECDF','Бриф, який<br><b>заповнює клієнт</b>','Кидаєш посилання, а відповіді одразу лягають у картку проєкту. Без Google Форм і голосових.',
+  ()=>row('<span class="m">Назва проєкту</span>&nbsp; Бренд срібних прикрас','')+row('<span class="m">Чого уникати?</span>&nbsp; слова «ексклюзив»','')+`<span class="dm" style="background:#DBF07A;justify-content:center">12 відповідей уже в пульті</span>`],
+ ['зйомки','#FAFAF8','Що, де, коли<br><b>і для кого</b>','Плануєш зйомки разом із контентом. Навіть якщо зйомка поки без проєкту.',
+  ()=>row('📍 Пт 11:00 · прикраси на склі · студія','<span class="pill">5 кадрів</span>')+row('☑ загальний план','')+row('☐ макро з відблисками','')],
+ ['файлове сховище','#F4A3C0','Усі матеріали<br><b>в одному сховищі</b>','Візуали, відео, документи й референси по кожному проєкту. А не «десь на Диску, здається».',
+  ()=>`<div class="filesg">${[['moodboard.png','#D8D7FC'],['reels_v2.mp4','#DBF07A'],['бриф.pdf','#141414'],['лого.svg','#C8E1FF']].map(([n,c])=>`<span style="--c:${c}">${n}</span>`).join('')}</div>`],
+ ['погодження','#DBF07A','«Погоджено»<br><b>без пʼяти нагадувань</b>','Клієнт бачить допис і тисне «погодити» або лишає коментар. Ти бачиш статус одразу.',
+  ()=>row('Reels: бекстейдж лукбуку','<span class="pill">✓ погоджено</span>')+row('Карусель «як носити срібло»','<span class="m">💬 1 коментар</span>')],
+ ['сторінка для клієнта','#D8D7FC','Окреме посилання<br><b>для клієнта</b>','Клієнт бачить свій план і стрічку, погоджує й коментує. Без доступу до твоєї кухні.',
+  ()=>row('🔗 посилання для клієнта','<span class="pill l">скопіювати</span>')+row('План + стрічка + погодження','<span class="m">лише його</span>')],
+ ['аналітика','#E5E5E2','Цифри<br><b>поруч із планом</b>','Завантажуєш статистику в пульт, і звіт у кінці місяця збирається з одного місця.',
+  ()=>`<div class="bars">${[38,52,46,64,58,90].map((h,i)=>`<i class="${i==5?'on':''}" style="height:${h}%;animation-delay:${i*.06}s"></i>`).join('')}</div>`],
+];
+function row(t,r){return `<div class="dm"><span class="t">${t}</span>${r}</div>`}
+const tog=$('#tog'),panel=$('#panel'),swap=$('#swap'),pn=$('#pn'),pk=$('#pk');
+const on=new Set();let act=-1,auto=null,userTook=false;
+F.forEach((f,i)=>{const b=document.createElement('button');b.type='button';b.className='tg';b.setAttribute('aria-pressed','false');b.innerHTML=`<span>${f[0][0].toUpperCase()+f[0].slice(1)}</span><span class="sl"></span>`;b.onclick=()=>{userTook=true;stopAuto();show(i)};tog.appendChild(b)});
+const allB=document.createElement('button');allB.type='button';allB.className='tg all';allB.textContent='Увімкнути все';tog.appendChild(allB);
+const tgs=[...tog.querySelectorAll('.tg:not(.all)')];
+function paint(){tgs.forEach((b,i)=>{b.classList.toggle('on',on.has(i));b.classList.toggle('act',i===act);b.setAttribute('aria-pressed',on.has(i))})}
+function setPanel(bg,num,key,html){
+ swap.classList.add('out');
+ setTimeout(()=>{panel.style.background=bg;pn.textContent=num;pk.textContent=key;swap.innerHTML=html;swap.classList.remove('out')},RM?0:220);
+}
+function show(i){
+ act=i;on.add(i);paint();
+ const f=F[i];
+ setPanel(f[1],String(i+1).padStart(2,'0')+' / 09',f[0],`<h3>${f[2]}</h3><p>${f[3]}</p><div class="demo">${f[4]()}</div>`);
+}
+allB.onclick=()=>{userTook=true;stopAuto();act=-1;
+ F.forEach((_,i)=>setTimeout(()=>{on.add(i);paint()},RM?0:i*90));
+ setTimeout(()=>setPanel('#DBF07A','09 / 09','усе увімкнено',`<h3>Усе<br><b>увімкнено</b></h3><p>План, стрічка, задачі, брифи, зйомки, файли, погодження, сторінка для клієнта й аналітика. В одному пульті.</p><div class="demo"><a class="btn solid" href="#pricing" style="justify-self:start">Обрати тариф</a></div>`),RM?0:F.length*90);
+};
+function startAuto(){if(userTook||RM||auto)return;auto=setInterval(()=>show((act+1)%F.length),3400)}
+function stopAuto(){clearInterval(auto);auto=null}
+show(0);
+new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting?startAuto():stopAuto()),{threshold:.35}).observe(panel);
+
+/* client approve */
+$('#approve').onclick=()=>$('#phone').classList.toggle('done');
+
+/* reviews (placeholders until real ones are allowed) */
+const R=[
+ ['01','Тут буде відгук першої тестувальниці. Збираємо їх зараз — покажемо, щойно дадуть дозвіл.','[ імʼя ]','[ роль · проєкт ]'],
+ ['02','Місце для другого відгуку. Без вигаданих цитат — лише справжні слова тих, хто вже клацав пульт.','[ імʼя ]','[ роль · проєкт ]'],
+ ['03','Місце для третього відгуку. Можна зі скріном з чату, якщо автор не проти.','[ імʼя ]','[ роль · проєкт ]'],
+];
+let ri=0;const rb=$('#rbody');
+function rset(){const r=R[ri];rb.innerHTML=`<p>${r[1]}</p><div class="sk" aria-hidden="true"><i style="width:70%"></i><i style="width:46%"></i></div><div class="who-r"><span class="av"></span><div><div style="font-weight:500">${r[2]}</div><div style="color:var(--ink-3);font-size:14px">${r[3]}</div></div></div>`;$('#rcnt').textContent=r[0]+' / 03';$('#gnum').textContent='наступний · '+R[(ri+1)%3][0]}
+function rgo(d){rb.classList.add('out');setTimeout(()=>{ri=(ri+d+3)%3;rset();rb.classList.remove('out')},RM?0:450)}
+rset();$('#rprev').onclick=()=>rgo(-1);$('#rnext').onclick=()=>rgo(1);
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* magnet buttons */
+if(!RM&&matchMedia('(hover:hover)').matches){
+ document.querySelectorAll('.mag').forEach(b=>{
+  b.addEventListener('pointermove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)/4}px,${(e.clientY-r.top-r.height/2)/3}px)`});
+  b.addEventListener('pointerleave',()=>{b.style.transform=''});
+ });
+}
+
+/* remote that watches you */
+const eyer=$('#eyer'),ball=$('#ball'),pupil=$('#pupil');
+let mx=innerWidth/2,my=innerHeight/2,hasPtr=false,smx=0,smy=0;
+addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;hasPtr=true},{passive:true});
+(function blink(){setTimeout(()=>{eyer.classList.add('blink');setTimeout(()=>eyer.classList.remove('blink'),150);blink()},2500+Math.random()*3000)})();
+$('#pw').onclick=()=>{const r=document.documentElement;const dark=r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches;r.dataset.theme=dark?'light':'dark'};
+$('#up').onclick=()=>scrollTo({top:0,behavior:RM?'auto':'smooth'});
+const approve=$('#approve');
+
+/* frame loop */
+const chaos=$('#chaos'),stack=[...document.querySelectorAll('.sc')];
+const darkSecs=[...document.querySelectorAll('[data-theme-sec="dark"]')];
+let t0=performance.now();
+function frame(now){
+ const t=(now-t0)/1000,H=innerHeight,Wd=innerWidth;
+ smx+=((mx/Wd-.5)-smx)*.06; smy+=((my/H-.5)-smy)*.06;
+ const sy=scrollY;
+ if(sy>40)tb.classList.add('gone');
+
+ // marquee by scroll
+ const off=sy*.35;
+ mq1.style.transform=`translateX(${-off%1400-200}px)`;
+ mq2.style.transform=`translateX(${off%1400-1400}px)`;
+ // manifesto letters
+ const mr=man.getBoundingClientRect();
+ if(mr.top<H&&mr.bottom>0){const pr=clamp((H*.85-mr.top)/(mr.height+H*.45),0,1);const n=Math.round(pr*chs.length);chs.forEach((c,i)=>c.classList.toggle('on',RM||i<n))}
+ // chaos → order
+ const cr=chaos.getBoundingClientRect();
+ if(cr.top<H&&cr.bottom>0){
+  const total=chaos.offsetHeight-(H-74);
+  const p=clamp(-cr.top/total,0,1);
+  const k=RM?(p>.5?1:0):ease(clamp((p-.06)/.48,0,1));
+  const BW=board.clientWidth,BH=board.clientHeight;
+  const rowH=Math.min(46,(BH-110)/bits.length);
+  bits.forEach((b,i)=>{
+   const w=b.offsetWidth;const s=SC[i];
+   const fl=RM?0:Math.sin(t*1.2+i*1.7)*6*(1-k);
+   const x0=clamp(s[0]*BW,0,BW-w-4),y0=s[1]*BH+fl;
+   const x1=22,y1=92+i*rowH;
+   b.style.transform=`translate(${x0+(x1-x0)*k}px,${y0+(y1-y0)*k}px) rotate(${s[2]*(1-k)}deg)`;
+   b.classList.toggle('tidy',k>.92);
+  });
+  pc.style.opacity=k;pc.style.transform=`scale(${.94+.06*k})`;
+  const ns=k>.55?1:0;if(ns!==hstate){hstate=ns;hsw.innerHTML=ns?'Ось тут.<br><b>У картці.</b>':'Де інфо<br>про <b>проєкт?</b>'}
+ }
+ // stacking cards
+ stack.forEach((c,i)=>{const nxt=stack[i+1];if(!nxt){c.style.transform='';return}
+  const a=c.getBoundingClientRect(),b=nxt.getBoundingClientRect();
+  const cover=clamp(1-(b.top-a.top)/a.height,0,1);
+  c.style.transform=RM?'':`scale(${1-cover*.06})`;c.style.filter=`brightness(${1-cover*.08})`});
+ // nav over dark band
+ const yy=80;let dark=false;darkSecs.forEach(s=>{const r=s.getBoundingClientRect();if(r.top<=yy&&r.bottom>yy)dark=true});
+ document.body.classList.toggle('on-dark',dark);
+ // eye
+ const er=ball.parentElement.getBoundingClientRect();
+ if(er.bottom>-200&&er.top<H+200){
+  let dx,dy;
+  if(hasPtr){dx=mx-(er.left+er.width/2);dy=my-(er.top+er.height/2)}else{dx=Math.cos(t*.8)*100;dy=Math.sin(t*.8)*100}
+  const a=Math.atan2(dy,dx),m=clamp(Math.hypot(dx,dy)/220,0,1);
+  ball.style.transform=`translate(${Math.cos(a)*30*m}px,${Math.sin(a)*30*m}px)`;
+  pupil.style.transform=`translate(${Math.cos(a)*13*m}px,${Math.sin(a)*13*m}px)`;
+ }
+ requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+})();
 </script>
-</body>
-</html>
+<script>
+/* interactive hero: the remote drives the screen */
+(()=>{
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const $=s=>document.querySelector(s);
+const tvs=$('#tvs'),scr=$('#scr'),view=$('#view'),osd=$('#osd'),chn=$('#chn'),chl=$('#chl'),dots=$('#dots'),noise=$('#noise'),toastEl=$('#toast'),rc=$('#rc'),tv=$('#tv');
+const POOL=['Мудборд на зимову кампанію','Колаб з керамісткою','Підписи до каруселі','Звіт за жовтень','Тренд-аудіо для рілс'];
+const S={
+ today:{sel:1,items:[{t:'Reels: бекстейдж лукбуку',m:'пт 18:00',d:1},{t:'Тексти до запуску дропу',m:'до 18:00'},{t:'Зйомка прикрас на склі',m:'пт 11:00'},{t:'Бриф від концепт-стору',m:'сьогодні'}],pool:0},
+ plan:{sel:0,items:[{d:'Пн',t:'Сторіз «день у шоурумі»',s:2},{d:'Ср',t:'Карусель «як носити срібло»',s:0},{d:'Пт',t:'Reels: бекстейдж лукбуку',s:1},{d:'Нд',t:'Анонс pop-up вечора',s:0}]},
+ feed:{tiles:['#F4A3C0','#FAFAF8','#DBF07A','#141414','#D8D7FC','#C8E1FF','#F7DDE8','#E1ECDF','#E5E5E2'],fresh:-1},
+ brief:{n:0,q:[['Назва проєкту','Бренд срібних прикрас'],['Хто ваша аудиторія?','ті, хто купує прикраси собі, а не на свято'],['Чого уникати?','стокових фото й слова «ексклюзив»']]},
+ appr:{i:0,list:[['Reels: бекстейдж лукбуку','#F4A3C0','пт 18:00'],['Карусель «як носити срібло»','#D8D7FC','нд 12:00'],['Анонс pop-up вечора','#C8E1FF','вт 10:00']]},
+ stats:{v:[38,52,46,64,58,82],m:['трав','черв','лип','серп','вер','жовт']}
+};
+const STN=['чернетка','на погодженні','погоджено'];
+const CH=[
+ ['Сьогодні','today',()=>`<div class="vh"><span class="pj">четвер · усі проєкти</span></div><h4>Що горить <b>сьогодні</b></h4><div class="lst">${S.today.items.map((x,i)=>`<div class="r ${x.d?'done':''} ${i===S.today.sel?'sel':''} ${x.n?'new':''}"><span class="ck">✓</span><span class="t">${x.t}</span><span class="m">${x.m}</span></div>`).join('')}</div>`],
+ ['План','plan',()=>`<div class="vh"><span class="pj">листопад · тиждень 2</span></div><h4>Контент-<b>план</b></h4><div class="lst">${S.plan.items.map((x,i)=>`<div class="r ${i===S.plan.sel?'sel':''} ${x.n?'new':''}"><span class="m" style="width:24px">${x.d}</span><span class="t">${x.t}</span><span class="st s${x.s}">${STN[x.s]}</span></div>`).join('')}</div>`],
+ ['Стрічка','feed',()=>`<div class="vh"><span class="pj">як буде</span></div><h4>Стрічка <b>наперед</b></h4><div class="fg">${S.feed.tiles.slice(0,9).map((c,i)=>`<i class="${i===S.feed.fresh?'new':''}" style="background:${c}"></i>`).join('')}</div>`],
+ ['Бриф','brief',()=>`<div class="vh"><span class="pj">посилання для клієнта</span></div><h4>Бриф <b>заповнює клієнт</b></h4><div class="bf">${S.brief.q.map((q,i)=>`<span class="q">${q[0]}</span><div class="a">${i<S.brief.n?q[1]:''}</div>`).join('')}</div>`],
+ ['Погодження','appr',()=>{const a=S.appr.list[S.appr.i%S.appr.list.length];return `<div class="vh"><span class="pj">${a[2]}</span></div><h4>Чекає <b>на «так»</b></h4><div class="ap"><div class="pv" style="background:${a[1]}"></div><div class="info"><b>${a[0]}</b><span class="st ${S.appr.ok?'s2':'s1'}" style="justify-self:start">${S.appr.ok?'погоджено ✓':'на погодженні'}</span></div></div>`}],
+ ['Аналітика','stats',()=>`<div class="vh"><span class="pj">охоплення</span></div><h4>Цифри <b>поруч із планом</b></h4><div class="bars2">${S.stats.v.map((h,i)=>`<i style="height:${h}%"><span>${S.stats.m[i]}</span></i>`).join('')}</div>`],
+];
+let ch=0,hist=[],on=true,muted=false,auto=null,used=false,osdT=null,toastT=null;
+dots.innerHTML=CH.map(()=>'<i></i>').join('');
+const dEls=[...dots.children];
+function render(anim){
+ const put=()=>{view.innerHTML=CH[ch][2]();view.classList.remove('out')};
+ if(anim&&!RM){view.classList.add('out');setTimeout(put,140)}else put();
+ dEls.forEach((d,i)=>d.classList.toggle('on',i===ch));
+ chn.textContent='CH '+String(ch+1).padStart(2,'0');chl.textContent=CH[ch][0];
+ osd.classList.remove('hide');clearTimeout(osdT);osdT=setTimeout(()=>osd.classList.add('hide'),1800);
+}
+function go(n,push=true){if(!on)return;if(push)hist.push(ch);ch=(n+CH.length)%CH.length;
+ if(!RM){noise.classList.remove('go');void noise.offsetWidth;noise.classList.add('go')}render(true)}
+let inPress=false,pending=null,popEl=null;
+function toast(t){}
+const IGI='<svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.6"/></svg>';
+const PAL=['#DBF07A','#F4A3C0','#D8D7FC','#C8E1FF','#FAFAF8','#141414'];
+function pop(icon,label,color,burst){
+ if(popEl){const o=popEl;o.classList.add('bye');setTimeout(()=>o.remove(),400)}
+ const p=document.createElement('div');p.className='pop';p.style.background=color;p.style.setProperty('--r',(Math.random()*10-5).toFixed(1)+'deg');
+ p.innerHTML=`<span class="ic">${icon}</span>${label?`<span class="tx">${label}</span>`:''}`;scr.appendChild(p);popEl=p;
+ requestAnimationFrame(()=>requestAnimationFrame(()=>p.classList.add('on')));
+ setTimeout(()=>{p.classList.add('bye');setTimeout(()=>{p.remove();if(popEl===p)popEl=null},400)},1250);
+ if(burst&&!RM){for(let i=0;i<16;i++){const b=document.createElement('i');b.className='bz';b.style.background=PAL[i%PAL.length];if(i%3==0)b.style.borderRadius='50%';scr.appendChild(b);
+  const a=Math.random()*Math.PI*2,d=90+Math.random()*130;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{b.style.transform=`translate(${Math.cos(a)*d}px,${Math.sin(a)*d}px) rotate(${Math.random()*360}deg)`;b.style.opacity='0'}));
+  setTimeout(()=>b.remove(),900)}}
+}
+function popFor(k){
+ const key=CH[ch][1],sel=S[key]&&S[key].items?S[key].items[S[key].sel]:null;
+ const D={
+  right:()=>['›',CH[ch][0],'#D8D7FC'],
+  left:()=>['‹',CH[ch][0],'#D8D7FC'],
+  back:()=>['←',pending||CH[ch][0],'#F4A3C0'],
+  ig:()=>[IGI,'Стрічка','#D8D7FC',true],
+  up:()=>['↑',sel?sel.t:pending,'#FAFAF8'],
+  down:()=>['↓',sel?sel.t:pending,'#FAFAF8'],
+  ok:()=>['✓',pending||({today:'Відмітила',plan:sel?STN[sel.s]:'',feed:'Перемішала',brief:'Клієнт пише…',appr:'Погоджено',stats:'+8% охоплення'})[key],'#DBF07A',true],
+  plus:()=>['+',pending||'Додала','#F4A3C0',true],
+  minus:()=>['−',pending||'Прибрала','#FAFAF8'],
+  play:()=>[auto?'▶':'‖',pending,'#FAFAF8'],
+  mute:()=>[muted?'🔇':'🔊',pending,'#C8E1FF'],
+  power:()=>['⏻',on?'Привіт!':'',on?'#DBF07A':'#FAFAF8',on],
+ };
+ if(!on&&k!=='power')return;
+ const r=D[k]&&D[k]();if(r)pop(r[0],r[1],r[2],r[3]);
+}
+/* sound: soft ticks and a ding, only after the visitor presses something */
+let ac=null;
+function tone(f,d,g,delay=0){if(muted||!ac)return;const o=ac.createOscillator(),v=ac.createGain();o.type='sine';o.frequency.value=f;const t=ac.currentTime+delay;v.gain.setValueAtTime(0,t);v.gain.linearRampToValueAtTime(g,t+.01);v.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(v).connect(ac.destination);o.start(t);o.stop(t+d+.02)}
+const tick=()=>tone(1400,.05,.025),ding=()=>{tone(880,.7,.06);tone(1320,.9,.04,.09)};
+function act(k){
+ if(k==='power'){on=!on;scr.classList.toggle('isoff',!on);if(on){render(true);ding()}return}
+ if(!on)return;
+ const key=CH[ch][1];
+ switch(k){
+  case 'right':go(ch+1);break;
+  case 'left':go(ch-1);break;
+  case 'back':if(hist.length)go(hist.pop(),false);else toast('ти вже на початку');break;
+  case 'ig':go(2);break;
+  case 'up':case 'down':{const s=S[key];if(s&&s.items){s.sel=(s.sel+(k==='up'?-1:1)+s.items.length)%s.items.length;render()}else toast('‹ › — інші канали');break}
+  case 'ok':
+   if(key==='today'){const it=S.today.items[S.today.sel];it.d=!it.d;it.n=0;render();if(it.d){ding();toast('Готово ✓')}}
+   else if(key==='plan'){const it=S.plan.items[S.plan.sel];it.n=0;it.s=(it.s+1)%3;render();if(it.s===2){ding();toast('Клієнт погодив ✓')}}
+   else if(key==='feed'){S.feed.fresh=-1;const a=S.feed.tiles;for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}render();toast('Перемішала сітку')}
+   else if(key==='brief'){if(S.brief.n<S.brief.q.length){typeIn()}else{S.brief.n=0;render();toast('Новий бриф відправлено')}}
+   else if(key==='appr'){if(S.appr.ok)return;S.appr.ok=1;render();ding();setTimeout(()=>{S.appr.ok=0;S.appr.i++;render(true)},1100)}
+   else if(key==='stats'){S.stats.v=S.stats.v.map((h,i)=>i===5?Math.min(96,h+8):h);render();toast('Звіт зібрано з одного місця')}
+   break;
+  case 'plus':
+   if(key==='today'){S.today.items.forEach(x=>x.n=0);S.today.items.unshift({t:POOL[S.today.pool++%POOL.length],m:'нова',n:1});if(S.today.items.length>5)S.today.items.pop();S.today.sel=0;render();toast('Нова задача')}
+   else if(key==='plan'){S.plan.items.forEach(x=>x.n=0);S.plan.items.push({d:'Сб',t:'Мудборд дропу',s:0,n:1});if(S.plan.items.length>5)S.plan.items.shift();S.plan.sel=S.plan.items.length-1;render();toast('Допис у плані')}
+   else if(key==='feed'){const c=['#DBF07A','#F4A3C0','#D8D7FC','#C8E1FF'][Math.floor(Math.random()*4)];S.feed.tiles.unshift(c);S.feed.fresh=0;render();toast('Новий допис у стрічці')}
+   else if(key==='stats'){S.stats.v[5]=Math.min(96,S.stats.v[5]+6);render()}
+   else toast('+ працює в задачах, плані й стрічці');break;
+  case 'minus':
+   if(key==='today'&&S.today.items.length>1){S.today.items.splice(S.today.sel,1);S.today.sel=Math.min(S.today.sel,S.today.items.length-1);render();toast('Прибрала')}
+   else if(key==='plan'&&S.plan.items.length>1){S.plan.items.splice(S.plan.sel,1);S.plan.sel=Math.min(S.plan.sel,S.plan.items.length-1);render()}
+   else if(key==='feed'&&S.feed.tiles.length>9){S.feed.tiles.shift();S.feed.fresh=-1;render()}
+   else if(key==='stats'){S.stats.v[5]=Math.max(20,S.stats.v[5]-6);render()}
+   break;
+  case 'play':if(auto){stopAuto();toast('Автоперемикання вимкнено')}else{startAuto(true);toast('Гортаю канали сама')}break;
+  case 'mute':muted=!muted;$('#mx').style.display=muted?'':'none';$('#bmute').classList.toggle('act',!muted);toast(muted?'Звук вимкнено':'Звук увімкнено');if(!muted)ding();break;
+ }
+}
+let typing=false;
+function typeIn(){if(typing)return;typing=true;const i=S.brief.n;const full=S.brief.q[i][1];S.brief.n++;render();const box=view.querySelectorAll('.a')[i];box.textContent='';let j=0;
+ const st=()=>{if(j<=full.length){box.textContent=full.slice(0,j++);setTimeout(st,RM?0:28)}else{typing=false;tick();if(S.brief.n===S.brief.q.length){ding();toast('Відповіді вже в картці проєкту')}}};st()}
+function press(k,user){
+ const b=rc.querySelector(`[data-k="${k}"]`);if(b){b.classList.add('pr');setTimeout(()=>b.classList.remove('pr'),160)}
+ if(user){if(!ac){try{ac=new (window.AudioContext||window.webkitAudioContext)()}catch(e){}}if(!used){used=true;tvs.classList.add('used');stopAuto()}tick()}
+ act(k);
+}
+rc.addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(b)press(b.dataset.k,true)});
+/* keyboard while the hero is on screen */
+let heroVis=true;
+new IntersectionObserver(es=>es.forEach(e=>{heroVis=e.isIntersecting;if(!heroVis)stopAuto()}),{threshold:.3}).observe(tvs);
+addEventListener('keydown',e=>{if(!heroVis||e.target.closest('input,textarea,select,[contenteditable]')||e.metaKey||e.ctrlKey||e.altKey)return;
+ const m={ArrowLeft:'left',ArrowRight:'right','+':'plus','=':'plus','-':'minus',Backspace:'back'};
+ let k=m[e.key];if(e.key==='Enter'&&!e.target.closest('a,button'))k='ok';
+ if(k){e.preventDefault();press(k,true)}});
+/* attract mode: ghost presses until someone touches the remote */
+const DEMO=['ok','right','ok','right','plus','right','ok','ok','right','ok','right','ok','right'];let di=0;
+function startAuto(force){if(RM||auto||(used&&!force))return;auto=setInterval(()=>{if(!on)return;if(used){go(ch+1);return}press(DEMO[di++%DEMO.length],false)},used?2600:1900);$('#bplay').classList.add('act')}
+function stopAuto(){clearInterval(auto);auto=null;$('#bplay').classList.remove('act')}
+$('#mx').style.display='none';$('#bmute').classList.add('act');
+render(false);
+/* the ok button is an eye */
+const hball=$('#hball'),hpup=$('#hpupil');let px=-1,py=-1;
+addEventListener('pointermove',e=>{px=e.clientX;py=e.clientY},{passive:true});
+(function bl(){setTimeout(()=>{rc.classList.add('blink');setTimeout(()=>rc.classList.remove('blink'),150);bl()},2400+Math.random()*3200)})();
+function eye(t){const r=hball.parentElement.getBoundingClientRect();let dx,dy;
+ if(px<0){dx=Math.cos(t/900)*100;dy=Math.sin(t/900)*100}else{dx=px-(r.left+r.width/2);dy=py-(r.top+r.height/2)}
+ const a=Math.atan2(dy,dx),m=Math.min(1,Math.hypot(dx,dy)/220);
+ hball.style.translate=`${Math.cos(a)*22*m}px ${Math.sin(a)*22*m}px`;hpup.style.transform=`translate(${Math.cos(a)*14*m}px,${Math.sin(a)*14*m}px)`}
+/* gentle 3D tilt toward the cursor */
+let tx=0,ty=0,sx=0,sy=0;
+addEventListener('pointermove',e=>{tx=e.clientX/innerWidth-.5;ty=e.clientY/innerHeight-.5},{passive:true});
+const mobile=matchMedia('(max-width:640px)');
+(function loop(now){sx+=(tx-sx)*.07;sy+=(ty-sy)*.07;if(!RM)eye(now||0);
+ if(!RM&&!mobile.matches&&tvs.getBoundingClientRect().bottom>0){
+  rc.style.transform=`rotate(-8deg) rotateY(${sx*16}deg) rotateX(${-sy*12}deg) translate(${sx*10}px,${sy*10}px)`;
+  tv.style.transform=`rotateY(${sx*5}deg) rotateX(${-sy*4}deg)`;
+ }
+ requestAnimationFrame(loop)})();
+})();
+/* pocket block */
+(()=>{const d=document.getElementById('dock'),bt=document.getElementById('dockbtn');
+function add(){if(d.classList.contains('in'))return;d.classList.add('in');bt.classList.add('done');bt.textContent='Готово, пульт у кишені ✓'}
+bt.onclick=add;let t=null;new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&!t)t=setTimeout(add,2600)}),{threshold:.7}).observe(d);})();
+</script>
+
+<script>(function(){const h=location.hash.slice(1);if(h!=="solo"&&h!=="team")return;const el=document.getElementById(h);if(!el)return;el.style.outline="3px solid #DBF07A";el.style.outlineOffset="4px";el.classList.add("in");setTimeout(()=>el.scrollIntoView({block:"center"}),1400)})();</script>
+<script>
+(()=>{const sw=document.getElementById('mysw'),d=document.getElementById('myday');if(!sw)return;
+sw.addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(!b)return;sw.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));d.style.background=b.dataset.c;d.style.color=b.dataset.c==='#141414'?'#F1F1ED':''});
+const tg=document.getElementById('mytg');tg.addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(!b)return;b.classList.toggle('hid');document.querySelectorAll('.myrows [data-k="'+b.dataset.k+'"]').forEach(r=>r.hidden=b.classList.contains('hid'))});})();
+</script>
+</body></html>
