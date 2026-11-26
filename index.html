@@ -56,7 +56,7 @@ section{position:relative;padding-block:clamp(64px,9vw,128px)}
 .in .d1{transition-delay:.1s}.in .d2{transition-delay:.2s}.in .d3{transition-delay:.3s}.in .d4{transition-delay:.4s}
 
 /* loader — pure CSS so the page never stays hidden */
-.loader{position:fixed;inset:0;z-index:100;background:var(--ground);display:grid;place-items:center;animation:lout .6s 1.1s var(--ease) forwards;pointer-events:none}
+.loader{position:fixed;inset:0;z-index:100;background:var(--ground);display:grid;place-items:center;animation:lout .5s .6s var(--ease) forwards;pointer-events:none}
 .loader img{width:150px;filter:var(--logo-f);animation:lpop 1s var(--ease) both}
 @keyframes lpop{from{opacity:0;transform:scale(.85) rotate(-6deg)}to{opacity:1;transform:none}}
 @keyframes lout{to{opacity:0;visibility:hidden}}
@@ -97,14 +97,14 @@ body.on-dark .nav .btn.solid{background:var(--lime);color:var(--p-ink);border-co
 .hero .copy{display:grid;gap:26px;min-width:0;position:relative;z-index:2}
 .hero h1 .ln{display:block;overflow:hidden;padding-bottom:.08em}
 .hero h1 .ln span{display:inline-block;transform:translateY(110%);animation:rise 1.1s var(--ease) forwards}
-.hero h1 .ln:nth-child(1) span{animation-delay:1.25s}.hero h1 .ln:nth-child(2) span{animation-delay:1.38s}
+.hero h1 .ln:nth-child(1) span{animation-delay:.7s}.hero h1 .ln:nth-child(2) span{animation-delay:.82s}
 @keyframes rise{to{transform:none}}
 .hero .fade{opacity:0;animation:fadeup 1s var(--ease) forwards}
 @keyframes fadeup{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 .ctas{display:flex;flex-wrap:wrap;gap:10px}
 /* typing prompt removed; interactive TV + remote */
 .hero .w{grid-template-columns:.85fr 1.15fr}
-.hero h1{font-size:clamp(50px,6.6vw,100px)}
+.hero h1{font-size:clamp(46px,5.4vw,84px)}
 .try{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font:400 12.5px var(--mono);color:var(--ink-3)}
 .try kbd{display:inline-grid;place-items:center;min-width:28px;height:28px;padding:0 8px;border-radius:9px;background:var(--card);border:1px solid var(--line);box-shadow:0 2px 0 var(--line);font:500 12px var(--mono);color:var(--ink)}
 .tvs{position:relative;height:720px;min-width:0;perspective:1200px}
@@ -554,9 +554,9 @@ summary{font-size:18px}
 <section class="hero" id="top" data-theme-sec="light">
  <div class="w">
   <div class="copy">
-   <h1><span class="ln"><span>Усі клієнти.</span></span><span class="ln"><span><b>Один пульт.</b></span></span></h1>
-   <p class="lead fade" style="animation-delay:1.6s">План, стрічка, задачі, брифи, зйомки й погодження всіх проєктів в одному місці. Без двадцяти вкладок і «скинь ще раз».</p>
-   <div class="ctas fade" style="animation-delay:1.75s"><a class="btn solid mag" href="#pricing">Обрати тариф</a><a class="btn mag" href="https://app.contentpult.com.ua">Увійти в кабінет</a></div>
+   <h1><span class="ln"><span>Весь&nbsp;SMM&nbsp;—</span></span><span class="ln"><span><b>на одному пульті</b></span></span></h1>
+   <p class="lead fade" style="animation-delay:1s">Твій робочий простір: проєкти, контент-плани, стрічка, зйомки, задачі, брифи та погодження. Вмикаєш потрібне й керуєш усім звідси.</p>
+   <div class="ctas fade" style="animation-delay:1.1s"><a class="btn solid mag" href="#pricing">Увімкнути пульт</a><a class="btn mag" href="https://app.contentpult.com.ua">Увійти в кабінет</a></div>
   </div>
   <div class="tvs" id="tvs">
    <div class="tv" id="tv">
@@ -710,7 +710,7 @@ summary{font-size:18px}
 <section class="glassy" id="pricing" style="padding-top:0">
  <div class="blobs" aria-hidden="true"><i style="width:480px;height:480px;background:#D8D7FC;left:-6%;top:10%;animation-delay:-0s"></i><i style="width:440px;height:440px;background:#DBF07A;left:40%;top:40%;animation-delay:-5s"></i><i style="width:460px;height:460px;background:#F4A3C0;left:70%;top:8%;animation-delay:-9s"></i></div>
   <div class="w">
-  <div class="sec-h rv"><span class="lab">тарифи</span><h2>Обери <b>свій пульт</b></h2><p class="lead">Тиждень безкоштовно. Далі — сам або з командою.</p></div>
+  <div class="sec-h rv"><span class="lab">тарифи</span><h2>Обери <b>свій пульт</b></h2><p class="lead">Сам чи з командою. Спробувати можна 7 днів безкоштовно.</p></div>
   <div class="plans plans3">
    <div class="card plan trial rv" id="trial"><div class="top"><h3>Пробний період</h3><span class="chip">7 днів</span></div><div class="amt">₴0 <small>/ 7 днів</small></div><p class="for">Спробуй на живих проєктах. Сподобається — лишайся.</p><ul><li>усе, що є в Соло</li><li>сьогодні 0 ₴, картку лише прив’язуєш</li><li>далі ₴229/міс, якщо не скасуєш</li></ul><a class="btn mag" href="https://app.contentpult.com.ua/?plan=trial">Спробувати</a><p class="pay-note">Скасувати можна в профілі</p></div>
    <div class="card plan best rv d1" id="solo"><div class="top"><h3>Соло</h3><span class="chips"><span class="chip rec">рекомендуємо</span><span class="chip">1 людина</span></span></div><div class="amt">₴229 <small>/ міс</small></div><p class="for">Для тих, хто веде кілька проєктів сам і втомився від десяти вкладок.</p><ul><li>план, стрічка, задачі, зйомки, тексти, файли</li><li>брифи й погодження для клієнтів</li><li>аналітика і звіт за місяць</li><li>з телефона як апка</li></ul><a class="btn lime mag" href="https://app.contentpult.com.ua/buy?plan=solo">Беру Соло</a><p class="pay-note">Карткою, Google Pay або Apple Pay</p></div>
@@ -836,7 +836,7 @@ const F=[
 function row(t,r){return `<div class="dm"><span class="t">${t}</span>${r}</div>`}
 const tog=$('#tog'),panel=$('#panel'),swap=$('#swap'),pn=$('#pn'),pk=$('#pk');
 const on=new Set();let act=-1,auto=null,userTook=false;
-F.forEach((f,i)=>{const b=document.createElement('button');b.type='button';b.className='tg';b.setAttribute('aria-pressed','false');b.innerHTML=`<span>${f[0][0].toUpperCase()+f[0].slice(1)}</span><span class="sl"></span>`;b.onclick=()=>{userTook=true;stopAuto();show(i)};tog.appendChild(b)});
+F.forEach((f,i)=>{const b=document.createElement('button');b.type='button';b.className='tg';b.setAttribute('aria-pressed','false');b.innerHTML=`<span>${f[0][0].toUpperCase()+f[0].slice(1)}</span><span class="sl"></span>`;b.onclick=()=>{userTook=true;stopAuto();if(on.has(i)&&act===i){off(i)}else show(i)};tog.appendChild(b)});
 const allB=document.createElement('button');allB.type='button';allB.className='tg all';allB.textContent='Увімкнути все';tog.appendChild(allB);
 const tgs=[...tog.querySelectorAll('.tg:not(.all)')];
 function paint(){tgs.forEach((b,i)=>{b.classList.toggle('on',on.has(i));b.classList.toggle('act',i===act);b.setAttribute('aria-pressed',on.has(i))})}
@@ -844,6 +844,7 @@ function setPanel(bg,num,key,html){
  swap.classList.add('out');
  setTimeout(()=>{panel.style.background=bg;pn.textContent=num;pk.textContent=key;swap.innerHTML=html;swap.classList.remove('out')},RM?0:220);
 }
+function off(i){on.delete(i);const rest=[...on];if(rest.length){show(rest[rest.length-1]);return}act=-1;paint();setPanel('#ECECE7','00 / 09','усе вимкнено','<h3>Пульт<br><b>на паузі</b></h3><p>Клацни будь-який перемикач, щоб увімкнути.</p>')}
 function show(i){
  act=i;on.add(i);paint();
  const f=F[i];
