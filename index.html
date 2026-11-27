@@ -112,6 +112,10 @@ body.on-dark .nav .btn.solid{background:var(--lime);color:var(--p-ink);border-co
 .scr{position:relative;width:100%;height:100%;border-radius:24px;background:#F1F1EE;color:#141414;overflow:hidden}
 .view{position:absolute;inset:0;padding:22px 22px 54px;display:grid;grid-template-rows:auto auto 1fr;gap:12px;transition:opacity .25s,transform .35s var(--ease)}
 .view.out{opacity:0;transform:scale(.97)}
+.live{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;z-index:2;opacity:0;pointer-events:none;transition:opacity .25s;background:#E5E5E2}
+.scr.islive .live{opacity:1}
+.scr.islive .dots{opacity:0}
+.scr.isoff .live{opacity:0}
 .vh{display:flex;justify-content:space-between;align-items:center;gap:10px}
 .vh .pj{font:400 12px var(--mono);color:#8F8F89}
 .view h4{margin:0;font-size:clamp(26px,2.6vw,36px);font-weight:300;letter-spacing:-.04em;line-height:1}
@@ -301,6 +305,19 @@ body.on-dark .nav .btn.solid{background:var(--lime);color:var(--p-ink);border-co
 @media(max-width:520px){.filesg{grid-template-columns:repeat(2,1fr)}}
 
 /* client page */
+.inside .ins{display:grid;grid-template-columns:300px minmax(0,1fr);gap:28px;align-items:start}
+.itabs{display:grid;gap:8px}
+.itabs button{position:relative;overflow:hidden;text-align:left;display:grid;gap:4px;padding:16px 18px 18px;border-radius:20px;border:1px solid var(--line-2);background:transparent;color:var(--ink-2);font:inherit;cursor:pointer;transition:background .3s,color .3s,border-color .3s}
+.itabs button b{font-size:19px;font-weight:500;letter-spacing:-.02em;color:var(--ink)}
+.itabs button span{font-size:14px;line-height:1.4}
+.itabs button[aria-selected="true"]{background:var(--card);border-color:var(--line)}
+.itabs button i{position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--ink)}
+.lap{background:#141414;border-radius:22px;padding:0 10px 10px;box-shadow:0 30px 60px -30px rgba(20,20,20,.45);min-width:0}
+.lbar{display:flex;align-items:center;gap:6px;height:38px;padding:0 6px}
+.lbar i{width:10px;height:10px;border-radius:50%;background:#3A3A38}
+.lbar span{margin:0 auto;transform:translateX(-24px);font:400 12px var(--mono);color:#8F8F89;background:#232322;padding:4px 14px;border-radius:999px}
+.lap video{display:block;width:100%;aspect-ratio:16/10;border-radius:14px;background:#E5E5E2;object-fit:cover}
+@media(max-width:900px){.inside .ins{grid-template-columns:1fr}.itabs{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.itabs button{padding:12px 12px 14px;border-radius:16px}.itabs button b{font-size:15px}.itabs button span{display:none}.lap{padding:0 6px 6px;border-radius:16px}.lbar{height:28px}.lbar span{font-size:10.5px;padding:3px 10px;transform:none}.lbar i{width:8px;height:8px}.lap video{border-radius:10px}}
 .client .card{position:relative;padding:clamp(28px,4vw,56px);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;overflow:hidden}
 .client ul{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:10px}
 .client li{display:flex;gap:10px;align-items:center;color:var(--ink-2)}
@@ -562,6 +579,7 @@ summary{font-size:18px}
    <div class="tv" id="tv">
     <div class="scr" id="scr">
      <div class="osd" id="osd"><span id="chn">CH 01</span><b id="chl">Сьогодні</b></div>
+     <video class="live" id="live" muted playsinline loop preload="auto" aria-label="Відео: як виглядає кабінет пульта"></video>
      <div class="view" id="view" aria-live="polite"></div>
      <div class="dots" id="dots"></div>
      <div class="noise" id="noise"></div>
@@ -628,6 +646,21 @@ summary{font-size:18px}
     <div class="top"><span id="pn">01 / 09</span><span id="pk">план</span></div>
     <div class="swap" id="swap"></div>
    </div>
+  </div>
+ </div>
+</section>
+
+<section class="inside" id="inside">
+ <div class="w">
+  <div class="sec-h rv"><h2>Пульт <b>зсередини</b></h2><p class="lead">Так виглядає кабінет — на прикладі нашого ж Instagram.</p></div>
+  <div class="ins rv d1">
+   <div class="itabs" role="tablist" aria-label="Розділи пульта">
+    <button type="button" role="tab" aria-selected="true" data-v="plan"><b>Контент-план</b><span>Місяць, дошка або список — як тобі зручніше.</span><i></i></button>
+    <button type="button" role="tab" aria-selected="false" data-v="feed"><b>Стрічка</b><span>Сітка Instagram до публікації. Окремо для кожного бренду.</span><i></i></button>
+    <button type="button" role="tab" aria-selected="false" data-v="tasks"><b>Задачі й зйомки</b><span>Що горить сьогодні і що взяти на знімальний день.</span><i></i></button>
+   </div>
+   <div class="lap"><div class="lbar"><i></i><i></i><i></i><span>app.contentpult.com.ua</span></div>
+    <video id="insv" muted playsinline preload="metadata" poster="/demo-plan.jpg" aria-label="Відео: розділ пульта"></video></div>
   </div>
  </div>
 </section>
@@ -969,6 +1002,7 @@ const S={
 };
 const STN=['чернетка','на погодженні','погоджено'];
 const CH=[
+ ['Пульт наживо','live',()=>''],
  ['Сьогодні','today',()=>`<div class="vh"><span class="pj">четвер · усі проєкти</span></div><h4>Що горить <b>сьогодні</b></h4><div class="lst">${S.today.items.map((x,i)=>`<div class="r ${x.d?'done':''} ${i===S.today.sel?'sel':''} ${x.n?'new':''}"><span class="ck">✓</span><span class="t">${x.t}</span><span class="m">${x.m}</span></div>`).join('')}</div>`],
  ['План','plan',()=>`<div class="vh"><span class="pj">листопад · тиждень 2</span></div><h4>Контент-<b>план</b></h4><div class="lst">${S.plan.items.map((x,i)=>`<div class="r ${i===S.plan.sel?'sel':''} ${x.n?'new':''}"><span class="m" style="width:24px">${x.d}</span><span class="t">${x.t}</span><span class="st s${x.s}">${STN[x.s]}</span></div>`).join('')}</div>`],
  ['Стрічка','feed',()=>`<div class="vh"><span class="pj">як буде</span></div><h4>Стрічка <b>наперед</b></h4><div class="fg">${S.feed.tiles.slice(0,9).map((c,i)=>`<i class="${i===S.feed.fresh?'new':''}" style="background:${c}"></i>`).join('')}</div>`],
@@ -976,11 +1010,17 @@ const CH=[
  ['Погодження','appr',()=>{const a=S.appr.list[S.appr.i%S.appr.list.length];return `<div class="vh"><span class="pj">${a[2]}</span></div><h4>Чекає <b>на «так»</b></h4><div class="ap"><div class="pv" style="background:${a[1]}"></div><div class="info"><b>${a[0]}</b><span class="st ${S.appr.ok?'s2':'s1'}" style="justify-self:start">${S.appr.ok?'погоджено ✓':'на погодженні'}</span></div></div>`}],
  ['Аналітика','stats',()=>`<div class="vh"><span class="pj">охоплення</span></div><h4>Цифри <b>поруч із планом</b></h4><div class="bars2">${S.stats.v.map((h,i)=>`<i style="height:${h}%"><span>${S.stats.m[i]}</span></i>`).join('')}</div>`],
 ];
+const live=$('#live');
+{const m=matchMedia('(max-width:640px)').matches?'tvm':'tv';live.poster='/demo-'+m+'.jpg';live.src='/demo-'+m+'.mp4'}
+let livePaused=false;
+function liveSync(){const isL=CH[ch][1]==='live';scr.classList.toggle('islive',isL);
+ if(isL&&on&&!livePaused&&heroVis&&!RM){const pr=live.play();if(pr)pr.catch(()=>{})}else live.pause()}
 let ch=0,hist=[],on=true,muted=false,auto=null,used=false,osdT=null,toastT=null;
 dots.innerHTML=CH.map(()=>'<i></i>').join('');
 const dEls=[...dots.children];
 function render(anim){
  const put=()=>{view.innerHTML=CH[ch][2]();view.classList.remove('out')};
+ liveSync();
  if(anim&&!RM){view.classList.add('out');setTimeout(put,140)}else put();
  dEls.forEach((d,i)=>d.classList.toggle('on',i===ch));
  chn.textContent='CH '+String(ch+1).padStart(2,'0');chl.textContent=CH[ch][0];
@@ -1012,7 +1052,7 @@ function popFor(k){
   ig:()=>[IGI,'Стрічка','#D8D7FC',true],
   up:()=>['↑',sel?sel.t:pending,'#FAFAF8'],
   down:()=>['↓',sel?sel.t:pending,'#FAFAF8'],
-  ok:()=>['✓',pending||({today:'Відмітила',plan:sel?STN[sel.s]:'',feed:'Перемішала',brief:'Клієнт пише…',appr:'Погоджено',stats:'+8% охоплення'})[key],'#DBF07A',true],
+  ok:()=>['✓',pending||({live:live.paused?'Пауза':'Граю далі',today:'Відмітила',plan:sel?STN[sel.s]:'',feed:'Перемішала',brief:'Клієнт пише…',appr:'Погоджено',stats:'+8% охоплення'})[key],'#DBF07A',true],
   plus:()=>['+',pending||'Додала','#F4A3C0',true],
   minus:()=>['−',pending||'Прибрала','#FAFAF8'],
   play:()=>[auto?'▶':'‖',pending,'#FAFAF8'],
@@ -1027,7 +1067,7 @@ let ac=null;
 function tone(f,d,g,delay=0){if(muted||!ac)return;const o=ac.createOscillator(),v=ac.createGain();o.type='sine';o.frequency.value=f;const t=ac.currentTime+delay;v.gain.setValueAtTime(0,t);v.gain.linearRampToValueAtTime(g,t+.01);v.gain.exponentialRampToValueAtTime(.0001,t+d);o.connect(v).connect(ac.destination);o.start(t);o.stop(t+d+.02)}
 const tick=()=>tone(1400,.05,.025),ding=()=>{tone(880,.7,.06);tone(1320,.9,.04,.09)};
 function act(k){
- if(k==='power'){on=!on;scr.classList.toggle('isoff',!on);if(on){render(true);ding()}return}
+ if(k==='power'){on=!on;scr.classList.toggle('isoff',!on);if(on){render(true);ding()}else liveSync();return}
  if(!on)return;
  const key=CH[ch][1];
  switch(k){
@@ -1037,7 +1077,8 @@ function act(k){
   case 'ig':go(2);break;
   case 'up':case 'down':{const s=S[key];if(s&&s.items){s.sel=(s.sel+(k==='up'?-1:1)+s.items.length)%s.items.length;render()}else toast('‹ › — інші канали');break}
   case 'ok':
-   if(key==='today'){const it=S.today.items[S.today.sel];it.d=!it.d;it.n=0;render();if(it.d){ding();toast('Готово ✓')}}
+   if(key==='live'){if(live.paused){livePaused=false;live.play().catch(()=>{});toast('▶ граю далі')}else{livePaused=true;live.pause();toast('‖ пауза')}}
+   else if(key==='today'){const it=S.today.items[S.today.sel];it.d=!it.d;it.n=0;render();if(it.d){ding();toast('Готово ✓')}}
    else if(key==='plan'){const it=S.plan.items[S.plan.sel];it.n=0;it.s=(it.s+1)%3;render();if(it.s===2){ding();toast('Клієнт погодив ✓')}}
    else if(key==='feed'){S.feed.fresh=-1;const a=S.feed.tiles;for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}render();toast('Перемішала сітку')}
    else if(key==='brief'){if(S.brief.n<S.brief.q.length){typeIn()}else{S.brief.n=0;render();toast('Новий бриф відправлено')}}
@@ -1071,7 +1112,7 @@ function press(k,user){
 rc.addEventListener('click',e=>{const b=e.target.closest('[data-k]');if(b)press(b.dataset.k,true)});
 /* keyboard while the hero is on screen */
 let heroVis=true;
-new IntersectionObserver(es=>es.forEach(e=>{heroVis=e.isIntersecting;if(!heroVis)stopAuto()}),{threshold:.3}).observe(tvs);
+new IntersectionObserver(es=>es.forEach(e=>{heroVis=e.isIntersecting;if(!heroVis)stopAuto();liveSync()}),{threshold:.3}).observe(tvs);
 addEventListener('keydown',e=>{if(!heroVis||e.target.closest('input,textarea,select,[contenteditable]')||e.metaKey||e.ctrlKey||e.altKey)return;
  const m={ArrowLeft:'left',ArrowRight:'right','+':'plus','=':'plus','-':'minus',Backspace:'back'};
  let k=m[e.key];if(e.key==='Enter'&&!e.target.closest('a,button'))k='ok';
@@ -1115,5 +1156,16 @@ const tg=document.getElementById('mytg');tg.addEventListener('click',e=>{const b
 </script>
 <script>
 (()=>{const b=document.getElementById('cmpbtn'),c=document.getElementById('cmp');if(!b||!c)return;b.addEventListener('click',()=>{const o=c.hidden;c.hidden=!o;b.setAttribute('aria-expanded',o);b.firstChild.textContent=o?'Сховати порівняння ':'Порівняти тарифи ';if(o)c.scrollIntoView({behavior:'smooth',block:'nearest'})})})();
+</script>
+<script>
+/* inside: tabbed demo videos */
+(()=>{const v=document.getElementById('insv'),tabs=[...document.querySelectorAll('.itabs button')];if(!v)return;
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;let cur=0,vis=false,picked=false;
+function set(i,play){cur=i;tabs.forEach((t,j)=>{t.setAttribute('aria-selected',j===i);t.querySelector('i').style.width='0'});const n=tabs[i].dataset.v;v.poster='/demo-'+n+'.jpg';v.src='/demo-'+n+'.mp4';v.loop=picked;if(play&&vis&&!RM)v.play().catch(()=>{})}
+v.addEventListener('timeupdate',()=>{if(v.duration)tabs[cur].querySelector('i').style.width=(v.currentTime/v.duration*100)+'%'});
+v.addEventListener('ended',()=>{if(!picked)set((cur+1)%tabs.length,true)});
+tabs.forEach((t,i)=>t.addEventListener('click',()=>{picked=true;set(i,true);if(RM)v.play().catch(()=>{})}));
+new IntersectionObserver(es=>es.forEach(e=>{vis=e.isIntersecting;if(vis&&!RM)v.play().catch(()=>{});else v.pause()}),{threshold:.35}).observe(v);
+set(0,false);})();
 </script>
 </body></html>
