@@ -660,7 +660,7 @@ summary{font-size:18px}
     <button type="button" role="tab" aria-selected="false" data-v="tasks"><b>Задачі й зйомки</b><span>Що горить сьогодні і що взяти на знімальний день.</span><i></i></button>
    </div>
    <div class="lap"><div class="lbar"><i></i><i></i><i></i><span>app.contentpult.com.ua</span></div>
-    <video id="insv" muted playsinline preload="metadata" poster="/demo-plan.jpg" aria-label="Відео: розділ пульта"></video></div>
+    <video id="insv" muted playsinline preload="metadata" poster="/pult-demo/demo-plan.jpg" aria-label="Відео: розділ пульта"></video></div>
   </div>
  </div>
 </section>
@@ -1011,7 +1011,7 @@ const CH=[
  ['Аналітика','stats',()=>`<div class="vh"><span class="pj">охоплення</span></div><h4>Цифри <b>поруч із планом</b></h4><div class="bars2">${S.stats.v.map((h,i)=>`<i style="height:${h}%"><span>${S.stats.m[i]}</span></i>`).join('')}</div>`],
 ];
 const live=$('#live');
-{const m=matchMedia('(max-width:640px)').matches?'tvm':'tv';live.poster='/demo-'+m+'.jpg';live.src='/demo-'+m+'.mp4'}
+{const m=matchMedia('(max-width:640px)').matches?'tvm':'tv';live.poster='/pult-demo/demo-'+m+'.jpg';live.src='/pult-demo/demo-'+m+'.mp4'}
 let livePaused=false;
 function liveSync(){const isL=CH[ch][1]==='live';scr.classList.toggle('islive',isL);
  if(isL&&on&&!livePaused&&heroVis&&!RM){const pr=live.play();if(pr)pr.catch(()=>{})}else live.pause()}
@@ -1161,7 +1161,7 @@ const tg=document.getElementById('mytg');tg.addEventListener('click',e=>{const b
 /* inside: tabbed demo videos */
 (()=>{const v=document.getElementById('insv'),tabs=[...document.querySelectorAll('.itabs button')];if(!v)return;
 const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;let cur=0,vis=false,picked=false;
-function set(i,play){cur=i;tabs.forEach((t,j)=>{t.setAttribute('aria-selected',j===i);t.querySelector('i').style.width='0'});const n=tabs[i].dataset.v;v.poster='/demo-'+n+'.jpg';v.src='/demo-'+n+'.mp4';v.loop=picked;if(play&&vis&&!RM)v.play().catch(()=>{})}
+function set(i,play){cur=i;tabs.forEach((t,j)=>{t.setAttribute('aria-selected',j===i);t.querySelector('i').style.width='0'});const n=tabs[i].dataset.v;v.poster='/pult-demo/demo-'+n+'.jpg';v.src='/pult-demo/demo-'+n+'.mp4';v.loop=picked;if(play&&vis&&!RM)v.play().catch(()=>{})}
 v.addEventListener('timeupdate',()=>{if(v.duration)tabs[cur].querySelector('i').style.width=(v.currentTime/v.duration*100)+'%'});
 v.addEventListener('ended',()=>{if(!picked)set((cur+1)%tabs.length,true)});
 tabs.forEach((t,i)=>t.addEventListener('click',()=>{picked=true;set(i,true);if(RM)v.play().catch(()=>{})}));
